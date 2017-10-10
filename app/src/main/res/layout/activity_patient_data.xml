@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/padding"
+    android:paddingBottom="@dimen/padding"
+    android:paddingStart="@dimen/reduced_padding"
+    android:paddingEnd="@dimen/reduced_padding"
+    tools:context="com.tesi.marco.filo.PatientDataActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text"
+            android:textColor="@color/black"
+            android:text="@string/patient"
+            android:layout_margin="@dimen/margin"/>
+
+        <TextView
+            android:id="@+id/name_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/patient"
+            android:textSize="@dimen/text_more"
+            android:textColor="@color/colorAccent"
+            android:layout_margin="@dimen/margin" />
+
+        <LinearLayout
+            android:id="@+id/date_of_birth"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_surname"
+            android:layout_marginTop="@dimen/padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date_of_birth_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_of_birth"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/margin" />
+
+            <TextView
+                android:id="@+id/date_of_birth_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_more"
+                android:textColor="@color/colorAccent"
+                android:layout_margin="@dimen/margin" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/date_of_birth"
+            android:layout_marginTop="@dimen/padding">
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:checked="false"
+                android:layout_weight="1"
+                android:textSize="@dimen/text"
+                android:text="@string/male"/>
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:checked="false"
+                android:layout_weight="1"
+                android:textSize="@dimen/text"
+                android:text="@string/female"/>
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/smoker"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/gender"
+            android:layout_marginTop="@dimen/padding">
+
+            <RadioButton
+                android:id="@+id/smoker_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:checked="false"
+                android:layout_weight="1"
+                android:textSize="@dimen/text"
+                android:text="@string/smoker"/>
+
+            <RadioButton
+                android:id="@+id/smoker_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:checked="false"
+                android:layout_weight="1"
+                android:textSize="@dimen/text"
+                android:text="@string/ex_smoker"/>
+
+            <RadioButton
+                android:id="@+id/smoker_ex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:checked="false"
+                android:layout_weight="1"
+                android:textSize="@dimen/text"
+                android:text="@string/non_smoker"/>
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/hypertension"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/smoker"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/hypertension_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/hypertension"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/hypertension_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/hypertension_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/hypertension_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dyslipidemia"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hypertension"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dyslipidemia_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/dyslipidemia"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/dyslipidemia_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/dyslipidemia_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/dyslipidemia_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/diabetes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dyslipidemia"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/diabetes_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/diabetes"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/diabetes_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/diabetes_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/diabetes_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/previous_heart_attack"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/diabetes"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/previous_heart_attack_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/previous_heart_attack"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/previous_heart_attack_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/previous_heart_attack_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/previous_heart_attack_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/previous_angioplasty"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/previous_heart_attack"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/previous_angioplasty_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/previous_angioplasty"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/previous_angioplasty_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/previous_angioplasty_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/previous_angioplasty_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/left_ventricular_function"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/previous_angioplasty"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="20"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/left_ventricular_function_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/left_ventricular_function"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <Spinner
+                android:id="@+id/left_ventricular_function_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="12"
+                android:layout_margin="@dimen/margin"
+                android:spinnerMode="dropdown"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/creatinine"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/left_ventricular_function"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/creatinine_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/creatinine"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/creatinine_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/value"
+                android:inputType="numberDecimal"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/number_of_ill_vessel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/creatinine"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/number_of_ill_vessel_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/number_of_ill_vessel"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/number_of_ill_vessel_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/value"
+                android:inputType="number"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/number_of_treated_vessel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number_of_ill_vessel"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/number_of_treated_vessel_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/number_of_ill_vessel"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/number_of_treated_vessel_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/value"
+                android:inputType="number"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/angioplasty_type1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number_of_treated_vessel"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/angioplasty_type1_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/angioplasty_type1"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/angioplasty_type1_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/angioplasty_type1_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/angioplasty_type1_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/angioplasty_type2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/angioplasty_type1"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/angioplasty_type2_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/angioplasty_type2"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/angioplasty_type2_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/angioplasty_type2_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/angioplasty_type2_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/angioplasty_type3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/angioplasty_type2"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/angioplasty_type3_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/angioplasty_type3"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/angioplasty_type3_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/angioplasty_type3_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/angioplasty_type3_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/angioplasty_type4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/angioplasty_type3"
+            android:layout_marginTop="@dimen/padding"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/angioplasty_type4_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/angioplasty_type4"
+                android:textSize="@dimen/text"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/angioplasty_type4_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/padding"
+                android:paddingStart="@dimen/padding">
+
+                <RadioButton
+                    android:id="@+id/angioplasty_type4_yes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/angioplasty_type4_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text"
+                    android:text="@string/no"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

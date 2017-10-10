@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tesi.marco.filo.MainActivity">
+
+    <!--<Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_logout"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/insertdata_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dati"
+        android:layout_below="@id/logout_button"
+        android:layout_centerHorizontal="true"/>-->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/add_data_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/ic_data_heart"/>
+
+            <Button
+                android:id="@+id/b2"
+                android:text="b2"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/patient_information_button"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="info"
+                />
+
+            <Button
+                android:id="@+id/logout_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/action_logout"
+                android:background="@android:drawable/ic_menu_agenda"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

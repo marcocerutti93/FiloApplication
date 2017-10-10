@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Filo</string>
+    <string name="registration_activity_title">Registra paziente</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_codice_fiscale">Codice Fiscale</string>
+    <string name="action_sign_in">Entra</string>
+    <string name="or">oppure</string>
+    <string name="doctor_advise">A cura del medico: registra paziente</string>
+    <string name="prompt_name">Nome</string>
+    <string name="prompt_surname">Cognome</string>
+    <string name="action_registration">Registra</string>
+    <string name="error_field_required">Campo richiesto</string>
+    <string name="type_of_password">La password deve essere almeno di 7 caratteri</string>
+    <string name="action_logout">Logout</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="value">Valore</string>
+
+    <string name="patient">Paziente</string>
+    <string name="date_of_birth">Data di nascita</string>
+    <string name="male">Maschio</string>
+    <string name="female">Femmina</string>
+    <string name="smoker">Fumatore</string>
+    <string name="non_smoker">Non fumatore</string>
+    <string name="ex_smoker">Ex fumatore</string>
+    <string name="hypertension">Ipertensione</string>
+    <string name="dyslipidemia">Dislipidemia</string>
+    <string name="diabetes">Diabete</string>
+    <string name="previous_heart_attack">Pregresso infarto</string>
+    <string name="previous_angioplasty">Pregressa angioplastica</string>
+    <string name="left_ventricular_function">Funzione ventricolare sinistra</string>
+    <string name="creatinine">Creatinina [mg/dl]</string>
+    <string name="number_of_ill_vessel">Numero di vasi malati</string>
+    <string name="number_of_treated_vessel">Numero di vasi trattati</string>
+    <string name="angioplasty_type1">Angioplastica su tronco comune</string>
+    <string name="angioplasty_type2">Angioplastica su iva</string>
+    <string name="angioplasty_type3">Angioplastica circonflessa</string>
+    <string name="angioplasty_type4">Angioplastica su coronaria destra</string>
+    <string name="angina">Angina</string>
+    <string name="Acute_coronaric_syndrome">Sindrome coronarica acuta</string>
+
+    <string name="yes">Sì</string>
+    <string name="no">No</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Annulla</string>
+
+    <string name="add_pressure_data">Pressione sanguigna</string>
+    <string name="insert_pressure">Inserisci la tua pressione</string>
+    <string name="maximum_pressure">Massima</string>
+    <string name="minimum_pressure">Minima</string>
+    <string name="add_weight_data">Peso</string>
+    <string name="insert_weight">Inserisci il tuo peso</string>
+    <string name="weight">Peso</string>
+    <string name="weight_unit">Kg</string>
+    <string name="add_smoke_data">Sigarette fumate</string>
+    <string name="smoke_today">Hai fumato oggi?</string>
+    <string name="add_medicine_data">Medicinali</string>
+    <string name="medicine_today">Hai preso i tuoi medicinali oggi?</string>
+</resources>

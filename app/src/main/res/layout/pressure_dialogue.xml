@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edit_max_pressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/half_margin"
+        android:hint="@string/maximum_pressure"
+        android:textSize="@dimen/text"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/edit_min_pressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_max_pressure"
+        android:layout_marginTop="@dimen/half_margin"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:hint="@string/minimum_pressure"
+        android:textSize="@dimen/text"
+        android:inputType="number"/>
+
+</RelativeLayout>
