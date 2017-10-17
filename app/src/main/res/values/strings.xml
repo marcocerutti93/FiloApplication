@@ -60,4 +60,6 @@
     <string name="smoke_today">Hai fumato oggi?</string>
     <string name="add_medicine_data">Medicinali</string>
     <string name="medicine_today">Hai preso i tuoi medicinali oggi?</string>
+
+    <string name="error_dialog_ok">Dati Richiesti.\nSe non vuoi inserire nessun dato, clicca su Annulla.</string>
 </resources>

@@ -165,13 +165,16 @@ public class RegistrationActivity extends AppCompatActivity {
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference myRef = database.getReference("patients").child(Uid);
 
-                           // dateOfBirth = retrieveDateOfBirth(fiscalCode);
                             myRef.child("Name").setValue(name);
                             myRef.child("Surname").setValue(surname);
                             myRef.child("Email").setValue(email);
                             myRef.child("Password").setValue(password);
                             myRef.child("FiscalCode").setValue(fiscalCode);
                             myRef.child("DateOfBirth").setValue(dateOfBirth);
+
+                            DatabaseReference idRef = database.getReference("patientsUid").child(fiscalCode);
+                            idRef.child("UserId").setValue(Uid);
+
                             Intent intent = new Intent(RegistrationActivity.this,MainActivity.class);
                             startActivity(intent);
                             finish();
