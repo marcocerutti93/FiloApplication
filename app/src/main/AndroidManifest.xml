@@ -20,8 +20,13 @@
         <activity android:name=".PatientDataActivity" />
         <activity
             android:name=".RegistrationActivity"
-            android:label="@string/registration_activity_title"/>
-        <activity android:name=".AddDataActivity"></activity>
+            android:label="@string/registration_activity_title" />
+        <activity android:name=".AddDataActivity" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:label="@string/forgot_password_activity_title"
+            android:parentActivityName=".LoginActivity" />
+
     </application>
 
 </manifest>
