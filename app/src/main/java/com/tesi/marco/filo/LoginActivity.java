@@ -70,20 +70,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        /*findViewById(R.id.start_registration).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
-                Intent intent = new Intent(LoginActivity.this, FirstLoginActivity.class);
-                startActivity(intent);
-            }
-        });*/
 
-        findViewById(R.id.new_user).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.forgot_password).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                Intent intent = new Intent(LoginActivity.this,ForgotPasswordActivity.class);
                 startActivity(intent);
+
             }
         });
     }
@@ -148,8 +141,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 6;
+        // This is the constraint required by firebase at the first password change.
+        return password.length() > 5;
     }
 
 }

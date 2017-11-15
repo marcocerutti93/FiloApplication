@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Filo</string>
     <string name="registration_activity_title">Registra paziente</string>
+    <string name="forgot_password_activity_title">Recupero Password</string>
+    <string name="action_recover_password">Recupera Password</string>
+    <string name="email_sent">Email inviata</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -19,6 +22,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="value">Valore</string>
+    <string name="forgot_password">Password dimenticata</string>
 
     <string name="patient">Paziente</string>
     <string name="date_of_birth">Data di nascita</string>
