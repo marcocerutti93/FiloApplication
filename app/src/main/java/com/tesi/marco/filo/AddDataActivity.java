@@ -2,10 +2,12 @@ package com.tesi.marco.filo;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -81,7 +83,10 @@ public class AddDataActivity extends AppCompatActivity {
         builder.setTitle(R.string.insert_pressure);
         builder.setView(pressureDialogueView);
         ePressureMax = (EditText) pressureDialogueView.findViewById(R.id.edit_max_pressure);
+        ePressureMax.setRawInputType(Configuration.KEYBOARD_12KEY);
         ePressureMin = (EditText) pressureDialogueView.findViewById(R.id.edit_min_pressure);
+        ePressureMin.setRawInputType(Configuration.KEYBOARD_12KEY);
+
         builder.setCancelable(false);
 
         builder.setPositiveButton(R.string.ok,null);

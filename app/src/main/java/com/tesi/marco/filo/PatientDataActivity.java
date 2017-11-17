@@ -24,33 +24,58 @@ import java.util.Calendar;
 public class PatientDataActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private TextView userData;
-    private Spinner fvsSpinner;
-    private ArrayAdapter<Integer> fvsSpinnerAdapter;
+    private TextView tvName, tvDob, tvCode;
+    private TextView tvGender, tvSmoker, tvHypertens, tvDyslip, tvDM, tvPreStr, tvPreAngio, tvLVEF;
     private FirebaseDatabase db;
-    private DatabaseReference userRef;
-    private String name, surname;
-    private static TextView dob;
-    private static String dateOfBirth;
-    private static String Uid;
+    private DatabaseReference userRef, infoRef;
+    private String dateOfBirth, code;
+    private String Uid, dispName;
+    private String gender, smoker, hypertens, dyslip, dm, preStr, preAngio;
+    private View mProgressView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_data);
 
-        userData = (TextView) findViewById(R.id.name_surname);
+        mProgressView = findViewById(R.id.data_progress_bar);
+        mProgressView.setVisibility(View.VISIBLE);
+
+        // Views
+        tvName = (TextView) findViewById(R.id.patient_name);
+        tvDob = (TextView) findViewById(R.id.date_of_birth_data);
+        tvCode = (TextView) findViewById(R.id.fiscal_code_data);
+        tvGender = (TextView) findViewById(R.id.gender_value);
+        tvSmoker = (TextView) findViewById(R.id.smoker_value);
+        tvHypertens = (TextView) findViewById(R.id.hypertension_value);
+        tvDyslip = (TextView) findViewById(R.id.dyslipidemia_value);
+        tvDM = (TextView) findViewById(R.id.diabetic_value);
+        tvPreStr = (TextView) findViewById(R.id.previous_heart_attack_value);
+        tvPreAngio = (TextView) findViewById(R.id.previous_angioplasty_value);
+
         auth = FirebaseAuth.getInstance();
         Uid = auth.getCurrentUser().getUid();
+        dispName = auth.getCurrentUser().getDisplayName();
+
+        if (dispName != null){
+            tvName.setText(dispName);
+        } else {
+            tvName.setText("Non presente");
+        }
+
         db = FirebaseDatabase.getInstance();
         userRef = db.getReference().child("patients").child(Uid);
+        infoRef = userRef.child("GeneralInformation");
+
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                name = dataSnapshot.child("Name").getValue().toString();
-                surname = dataSnapshot.child("Surname").getValue().toString();
-                Toast.makeText(PatientDataActivity.this,name + " " + surname,Toast.LENGTH_LONG).show();
-                userData.setText(name + " " + surname);
+                dateOfBirth = dataSnapshot.child("DateOfBirth").getValue().toString();
+                code = dataSnapshot.child("FiscalCode").getValue().toString();
+                tvDob.setText(dateOfBirth);
+                tvCode.setText(code);
+
+                mProgressView.setVisibility(View.GONE);
             }
 
             @Override
@@ -59,50 +84,19 @@ public class PatientDataActivity extends AppCompatActivity {
             }
         });
 
-        dob = (TextView) findViewById(R.id.date_of_birth_text2);
-        Calendar c = Calendar.getInstance();
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DAY_OF_MONTH);
-        dateOfBirth = String.valueOf(day) + "/" + String.valueOf(month) + "/" + String.valueOf(year);
-        dob.setText(dateOfBirth);
-        dob.setOnClickListener(new View.OnClickListener() {
+        infoRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getSupportFragmentManager(), "datePicker");
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChild("Gender")) {
+                    gender = dataSnapshot.child("Gender").getValue().toString();
+                    tvGender.setText(gender);
+                } else { tvGender.setText("non registrato");}
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
-
-        fvsSpinner = (Spinner) findViewById(R.id.left_ventricular_function_spinner);
-        Integer[] perc = new Integer[101];
-        for (int i = 0; i < perc.length; ++i) {
-            perc[i] = i;
-        }
-        fvsSpinnerAdapter = new ArrayAdapter<>(this,R.layout.spinner_item, perc);
-        fvsSpinner.setAdapter(fvsSpinnerAdapter);
     }
-
-    public static class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
-        }
-
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            // Do something with the date chosen by the user
-            dateOfBirth = String.valueOf(day) + "/" + String.valueOf(month) + "/" + String.valueOf(year);
-            dob.setText(dateOfBirth);
-        }
-    }
-
 }
