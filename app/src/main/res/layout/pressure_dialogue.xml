@@ -14,7 +14,7 @@
         android:layout_marginBottom="@dimen/half_margin"
         android:hint="@string/maximum_pressure"
         android:textSize="@dimen/text"
-        android:inputType="number"/>
+        />
 
     <EditText
         android:id="@+id/edit_min_pressure"
@@ -28,6 +28,6 @@
         android:layout_marginEnd="@dimen/margin"
         android:hint="@string/minimum_pressure"
         android:textSize="@dimen/text"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
 
 </RelativeLayout>

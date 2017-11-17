@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                     focusView.requestFocus();
                 } else {
                     mProgressView.setVisibility(View.VISIBLE);
-                    InputMethodManager imm = (InputMethodManager)getSystemService(RegistrationActivity.INPUT_METHOD_SERVICE);
+                    InputMethodManager imm = (InputMethodManager)getSystemService(LoginActivity.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     signIn();
                 }
