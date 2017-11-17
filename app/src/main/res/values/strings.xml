@@ -23,6 +23,7 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="value">Valore</string>
     <string name="forgot_password">Password dimenticata</string>
+    <string name="info_not_present">- - - - - -</string>
 
     <string name="patient">Paziente:</string>
     <string name="date_of_birth">Data di nascita:</string>

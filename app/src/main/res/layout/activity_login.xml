@@ -30,7 +30,19 @@
                 android:layout_height="160dp"
                 android:layout_margin="@dimen/margin"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/ic_launcher_round"/>
+                android:src="@mipmap/heart"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Developed by"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Politecnico di Torino"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
