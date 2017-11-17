@@ -57,6 +57,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
+                    android:text="@string/info_not_present"
                     android:textColor="@color/colorAccent"
                     android:layout_margin="@dimen/margin" />
 
@@ -86,6 +87,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"                    android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>
@@ -115,6 +117,7 @@
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>
@@ -144,6 +147,7 @@
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>
@@ -173,6 +177,7 @@
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>
@@ -202,6 +207,7 @@
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>
@@ -231,6 +237,7 @@
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>
@@ -260,6 +267,7 @@
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>
@@ -289,6 +297,7 @@
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>
@@ -318,6 +327,7 @@
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/text"
                     android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
                     android:layout_margin="@dimen/margin" />
 
             </RelativeLayout>

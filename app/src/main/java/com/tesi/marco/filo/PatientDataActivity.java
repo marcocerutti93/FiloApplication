@@ -90,7 +90,31 @@ public class PatientDataActivity extends AppCompatActivity {
                 if (dataSnapshot.hasChild("Gender")) {
                     gender = dataSnapshot.child("Gender").getValue().toString();
                     tvGender.setText(gender);
-                } else { tvGender.setText("non registrato");}
+                }
+                if (dataSnapshot.hasChild("Smoker")) {
+                    smoker = dataSnapshot.child("Smoker").getValue().toString();
+                    tvSmoker.setText(smoker);
+                }
+                if (dataSnapshot.hasChild("Hypertension")) {
+                    hypertens = dataSnapshot.child("Hypertension").getValue().toString();
+                    tvHypertens.setText(hypertens);
+                }
+                if (dataSnapshot.hasChild("Dyslipidemia")) {
+                    dyslip = dataSnapshot.child("Dyslipidemia").getValue().toString();
+                    tvDyslip.setText(dyslip);
+                }
+                if (dataSnapshot.hasChild("Diabetic")) {
+                    dm = dataSnapshot.child("Diabetic").getValue().toString();
+                    tvDM.setText(dm);
+                }
+                if (dataSnapshot.hasChild("PreviousStroke")) {
+                    preStr = dataSnapshot.child("PreviousStroke").getValue().toString();
+                    tvPreStr.setText(preStr);
+                }
+                if (dataSnapshot.hasChild("PreviousAngioplasty")) {
+                    preAngio = dataSnapshot.child("PreviousAngioplasty").getValue().toString();
+                    tvPreAngio.setText(preAngio);
+                }
             }
 
             @Override
