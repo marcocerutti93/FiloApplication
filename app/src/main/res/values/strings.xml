@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">Filo</string>
+    <string name="add_data_title_today">Filo - Oggi</string>
+    <string name="add_event_title">Filo - Aggiungi Evento</string>
     <string name="registration_activity_title">Registra paziente</string>
     <string name="forgot_password_activity_title">Recupero Password</string>
     <string name="action_recover_password">Recupera Password</string>
     <string name="email_sent">Email inviata</string>
+    <string name="medicine_activity_title">Terapia</string>
+    <string name="add_data_button_text">REGISTRA DATI</string>
+    <string name="medicine_button_text">TERAPIA</string>
+    <string name="patient_information_button_text">CARTELLA CLINICA</string>
+    <string name="logout_button_text">ESCI</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -67,6 +74,32 @@
     <string name="smoke_today">Hai fumato oggi?</string>
     <string name="add_medicine_data">Medicinali</string>
     <string name="medicine_today">Hai preso i tuoi medicinali oggi?</string>
+    <string name="add_physical_activity_data">Attività Fisica</string>
+    <string name="pa_type1">Camminata</string>
+    <string name="pa_type2">Corsa</string>
+    <string name="pa_type3">Bicicletta</string>
+    <string name="pa_type4">Palestra</string>
+    <string name="duration">Durata</string>
+    <string name="minutes">Minuti</string>
+    <string name="add_heart_rate_data">Frequenza cardiaca</string>
+    <string name="insert_heart_rate">Inserici la tua frequenza cardiaca</string>
+    <string name="heart_rate_unit">bpm</string>
+    <string name="add_glycemia_data">Glicemia</string>
+    <string name="insert_glycemia">Inserici la tua glicemia</string>
+    <string name="glycemia_unit">mg/dl</string>
+    <string name="add_event">Evento</string>
+    <string name="action_different_date_data">Scegli la data</string>
+    
+    <string name="event_therapy">Cambio Terapia</string>
+    <string name="event_physical_examination">Visita Medica</string>
+    <string name="event_hospitalization">Ricovero Ospedaliero</string>
+    <string name="event_bleeding">Sanguinamento senza intervento medico</string>
+    <string name="event_add_examination_data">Aggiungi Esame</string>
+
+    <string name="error_future_date">Non puoi inserire dati per una data successiva a oggi</string>
+    <string name="alert_old_date">Attenzione!\nStai modificando un\'informazione passata!</string>
 
     <string name="error_dialog_ok">Dati Richiesti.\nSe non vuoi inserire nessun dato, clicca su Annulla.</string>
+    <string name="error_pa_dialog">Inserici almeno un dato.\nSe non vuoi inserire nessun dato, clicca su Annulla.</string>
+    <string name="error_out_of_scale">Valore Errato</string>
 </resources>

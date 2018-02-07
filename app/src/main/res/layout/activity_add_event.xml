@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tesi.marco.filo.AddDataActivity">
+
+    <Button
+        android:id="@+id/add_therapy_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:text="@string/event_therapy" />
+
+    <Button
+        android:id="@+id/add_physical_examination_event"
+        android:layout_below="@id/add_therapy_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/event_physical_examination" />
+
+    <Button
+        android:id="@+id/add_hospitalization_event"
+        android:layout_below="@id/add_physical_examination_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/event_hospitalization" />
+
+    <Button
+        android:id="@+id/add_bleeding_event"
+        android:layout_below="@id/add_hospitalization_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/event_bleeding"/>
+
+    <Button
+        android:id="@+id/add_examination_data"
+        android:layout_below="@id/add_bleeding_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/event_add_examination_data"/>
+
+</RelativeLayout>

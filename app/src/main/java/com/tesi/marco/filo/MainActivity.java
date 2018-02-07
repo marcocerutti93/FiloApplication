@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private ImageButton addData, info, signOutButton;
+    private ImageButton addData, medicine, info, signOutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, AddDataActivity.class));
+            }
+        });
+
+        medicine = (ImageButton) findViewById(R.id.medicine_button);
+        medicine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MedicineActivity.class));
             }
         });
 

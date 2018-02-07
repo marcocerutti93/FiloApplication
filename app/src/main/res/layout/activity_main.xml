@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tesi.marco.filo.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/grey_100">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -13,24 +14,64 @@
         android:layout_height="match_parent"
         android:layout_weight="1.0">
 
-        <ImageButton
-            android:id="@+id/add_data_button"
-            android:scaleType="fitCenter"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.0"
-            android:src="@mipmap/heart"
-            android:background="@color/grey_100"
-            />
+            android:layout_weight="1.0">
 
-        <ImageButton
-            android:id="@+id/b2"
-            android:scaleType="fitCenter"
+            <ImageButton
+                android:id="@+id/add_data_button"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:src="@mipmap/heart"
+                android:background="@color/grey_100"
+                />
+
+            <TextView
+                android:id="@+id/add_data_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin"
+                android:text="@string/add_data_button_text"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/text"
+                android:background="@color/grey_100"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_weight="1.0"
             android:layout_height="match_parent"
-            android:src="@mipmap/heart"
-            android:background="@color/grey_100"/>
+            android:layout_weight="1.0"
+            >
+
+
+            <ImageButton
+                android:id="@+id/medicine_button"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_weight="1.0"
+                android:layout_height="0dp"
+                android:src="@mipmap/ic_medicine"
+                android:background="@color/grey_100"/>
+
+            <TextView
+                android:id="@+id/medicine_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin"
+                android:text="@string/medicine_button_text"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/text"
+                android:background="@color/grey_100"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -40,22 +81,63 @@
         android:layout_height="match_parent"
         android:layout_weight="1.0">
 
-        <ImageButton
-            android:id="@+id/patient_information_button"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_weight="1.0"
             android:layout_height="match_parent"
-            android:text="info"
-            />
+            android:layout_weight="1.0">
 
-        <ImageButton
-            android:id="@+id/logout_button"
-            android:scaleType="fitCenter"
+
+            <ImageButton
+                android:id="@+id/patient_information_button"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:src="@mipmap/ic_clinic_information"
+                android:background="@color/grey_100"/>
+
+            <TextView
+                android:id="@+id/patient_information_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin"
+                android:text="@string/patient_information_button_text"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/text"
+                android:background="@color/grey_100"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.0"
-            android:src="@mipmap/logout"
-            android:background="@color/grey_100"/>
+            android:layout_weight="1.0">
+
+
+            <ImageButton
+                android:id="@+id/logout_button"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:src="@mipmap/logout"
+                android:background="@color/grey_100" />
+
+            <TextView
+                android:id="@+id/logout_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin"
+                android:text="@string/logout_button_text"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/text"
+                android:background="@color/grey_100"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

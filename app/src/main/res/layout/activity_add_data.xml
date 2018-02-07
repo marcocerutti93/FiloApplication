@@ -27,12 +27,40 @@
         android:layout_height="wrap_content"
         android:text="@string/add_smoke_data" />
 
-    <Button
+    <!--<Button
         android:id="@+id/add_medicine_data"
         android:layout_below="@id/add_smoke_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_medicine_data" />
+        android:text="@string/add_medicine_data" />-->
+
+    <Button
+        android:id="@+id/add_physical_activity_data"
+        android:layout_below="@id/add_smoke_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_physical_activity_data"/>
+
+    <Button
+        android:id="@+id/add_heart_rate_data"
+        android:layout_below="@id/add_physical_activity_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_heart_rate_data"/>
+
+    <Button
+        android:id="@+id/add_glycemia_data"
+        android:layout_below="@id/add_heart_rate_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_glycemia_data"/>
+
+    <Button
+        android:id="@+id/add_event"
+        android:layout_below="@id/add_glycemia_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_event"/>
 
 
 
