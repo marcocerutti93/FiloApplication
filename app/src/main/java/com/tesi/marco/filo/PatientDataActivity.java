@@ -26,11 +26,13 @@ public class PatientDataActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private TextView tvName, tvDob, tvCode;
     private TextView tvGender, tvSmoker, tvHypertens, tvDyslip, tvDM, tvPreStr, tvPreAngio, tvLVEF;
+    private TextView tvCrea, tvNumVess, tvTreatVess, tvTrCom, tvIva, tvCirco, tvCorDx;
     private FirebaseDatabase db;
     private DatabaseReference userRef, infoRef;
     private String dateOfBirth, code;
     private String Uid, dispName;
-    private String gender, smoker, hypertens, dyslip, dm, preStr, preAngio;
+    private String gender, smoker, hypertens, dyslip, dm, preStr, preAngio, LVEF;
+    private String creatinine, numIllVess, numTreatVess, angioTrCom, angioIva, angioCirco, angioCorDx;
     private View mProgressView;
 
     @Override
@@ -52,6 +54,14 @@ public class PatientDataActivity extends AppCompatActivity {
         tvDM = (TextView) findViewById(R.id.diabetic_value);
         tvPreStr = (TextView) findViewById(R.id.previous_heart_attack_value);
         tvPreAngio = (TextView) findViewById(R.id.previous_angioplasty_value);
+        tvLVEF = (TextView) findViewById(R.id.left_ventricular_function_value);
+        tvCrea = (TextView) findViewById(R.id.creatinine_value);
+        tvNumVess = (TextView) findViewById(R.id.number_of_ill_vessel_value);
+        tvTreatVess = (TextView) findViewById(R.id.number_of_treated_vessel_value);
+        tvTrCom = (TextView) findViewById(R.id.angioplasty_type1_value);
+        tvIva = (TextView) findViewById(R.id.angioplasty_type2_value);
+        tvCirco = (TextView) findViewById(R.id.angioplasty_type3_value);
+        tvCorDx = (TextView) findViewById(R.id.angioplasty_type4_value);
 
         auth = FirebaseAuth.getInstance();
         Uid = auth.getCurrentUser().getUid();
@@ -114,6 +124,38 @@ public class PatientDataActivity extends AppCompatActivity {
                 if (dataSnapshot.hasChild("PreviousAngioplasty")) {
                     preAngio = dataSnapshot.child("PreviousAngioplasty").getValue().toString();
                     tvPreAngio.setText(preAngio);
+                }
+                if (dataSnapshot.hasChild("LVEF")) {
+                    LVEF = dataSnapshot.child("LVEF").getValue().toString();
+                    tvLVEF.setText(LVEF);
+                }
+                if (dataSnapshot.hasChild("Creatinine")) {
+                    creatinine = dataSnapshot.child("Creatinine").getValue().toString();
+                    tvCrea.setText(creatinine);
+                }
+                if (dataSnapshot.hasChild("Multivessel")) {
+                    numIllVess = dataSnapshot.child("Multivessel").getValue().toString();
+                    tvNumVess.setText(numIllVess);
+                }
+                if (dataSnapshot.hasChild("MultiTreatment")) {
+                    numTreatVess = dataSnapshot.child("MultiTreatment").getValue().toString();
+                    tvTreatVess.setText(numTreatVess);
+                }
+                if (dataSnapshot.hasChild("AngioplasticaTroncoComune")) {
+                    angioTrCom = dataSnapshot.child("AngioplasticaTroncoComune").getValue().toString();
+                    tvTrCom.setText(angioTrCom);
+                }
+                if (dataSnapshot.hasChild("AngioplasticaSuIva")) {
+                    angioIva = dataSnapshot.child("AngioplasticaSuIva").getValue().toString();
+                    tvIva.setText(angioIva);
+                }
+                if (dataSnapshot.hasChild("AngioplasticaCirconflessa")) {
+                    angioCirco = dataSnapshot.child("AngioplasticaCirconflessa").getValue().toString();
+                    tvCirco.setText(angioCirco);
+                }
+                if (dataSnapshot.hasChild("AngioplasticaCoronariaDestra")) {
+                    angioCorDx = dataSnapshot.child("AngioplasticaCoronariaDestra").getValue().toString();
+                    tvCorDx.setText(angioCorDx);
                 }
             }
 

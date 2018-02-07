@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Filo</string>
+    <string name="add_data_title_today">Filo - Oggi</string>
     <string name="registration_activity_title">Registra paziente</string>
     <string name="forgot_password_activity_title">Recupero Password</string>
     <string name="action_recover_password">Recupera Password</string>
     <string name="email_sent">Email inviata</string>
+    <string name="medicine_activity_title">Terapia</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -67,6 +69,10 @@
     <string name="smoke_today">Hai fumato oggi?</string>
     <string name="add_medicine_data">Medicinali</string>
     <string name="medicine_today">Hai preso i tuoi medicinali oggi?</string>
+    <string name="action_different_date_data">Scegli la data</string>
+
+    <string name="error_future_date">Non puoi inserire dati per una data successiva a oggi</string>
+    <string name="alert_old_date">Attenzione!\nStai modificando un\'informazione passata!</string>
 
     <string name="error_dialog_ok">Dati Richiesti.\nSe non vuoi inserire nessun dato, clicca su Annulla.</string>
 </resources>

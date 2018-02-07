@@ -1,7 +1,9 @@
 package com.tesi.marco.filo;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
@@ -9,37 +11,50 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class AddDataActivity extends AppCompatActivity {
 
     private Button PressureButton, WeightButton, SmokeButton, MedicineButton;
     private EditText ePressureMax, ePressureMin, eWeight;
+    private TextView tAlertOldDate;
     private RadioGroup eSmoke, eMedicine;
     private FirebaseAuth mAuth;
     private String Uid;
     private DatabaseReference myRef;
+    private String myDate, todayDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_data);
+        getSupportActionBar().setTitle(R.string.add_data_title_today);
         mAuth = FirebaseAuth.getInstance();
         Uid = mAuth.getCurrentUser().getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference("data").child(Uid);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ITALIAN);
+        myDate = dateFormat.format(Calendar.getInstance().getTime());
+        todayDate = dateFormat.format(Calendar.getInstance().getTime());
 
         PressureButton = (Button) findViewById(R.id.add_pressure_data);
         WeightButton = (Button) findViewById(R.id.add_weight_data);
@@ -76,6 +91,59 @@ public class AddDataActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_add_data, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        //noinspection SimplifiableIfStatement
+        switch (id) {
+            case R.id.action_different_date_data:
+                datePicker();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void datePicker(){
+        Calendar calendar = Calendar.getInstance();
+        final  SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ITALIAN);
+        final  SimpleDateFormat dateTitleFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                //System.out.print(dateFormatter.format(newDate.getTime()));
+                //Toast.makeText(AddDataActivity.this,dateFormatter.format(newDate.getTime()) , Toast.LENGTH_SHORT).show();
+                myDate = dateFormatter.format(newDate.getTime());
+                if (Integer.parseInt(myDate.replace("-",""))>Integer.parseInt(todayDate.replace("-",""))){
+                    myDate = todayDate;
+                    Toast.makeText(AddDataActivity.this, R.string.error_future_date, Toast.LENGTH_SHORT).show();
+                }
+                String title;
+                if (myDate.equals(todayDate)) {
+                    title = getString(R.string.add_data_title_today);
+                } else {
+                    title = getString(R.string.app_name) + " - " + dateTitleFormatter.format(newDate.getTime());
+                }
+                getSupportActionBar().setTitle(title);
+            }
+
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
+
+
     private void AddPressureData(final DatabaseReference myRef) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
@@ -86,6 +154,10 @@ public class AddDataActivity extends AppCompatActivity {
         ePressureMax.setRawInputType(Configuration.KEYBOARD_12KEY);
         ePressureMin = (EditText) pressureDialogueView.findViewById(R.id.edit_min_pressure);
         ePressureMin.setRawInputType(Configuration.KEYBOARD_12KEY);
+        tAlertOldDate = (TextView) pressureDialogueView.findViewById(R.id.alert_old_date);
+        if (Integer.parseInt(myDate.replace("-",""))<Integer.parseInt(todayDate.replace("-",""))){
+            tAlertOldDate.setVisibility(View.VISIBLE);
+        }
 
         builder.setCancelable(false);
 
@@ -107,8 +179,7 @@ public class AddDataActivity extends AppCompatActivity {
                 String pressureMax = ePressureMax.getText().toString();
                 String pressureMin = ePressureMin.getText().toString();
                 if (checkPressureData(pressureMax,pressureMin)){
-                    Date currentTime = Calendar.getInstance().getTime();
-                    DatabaseReference pRef = myRef.child("Pressure").child(currentTime.toString());
+                    DatabaseReference pRef = myRef.child("Pressure").child(myDate);
                     pRef.child("Maximum").setValue(pressureMax);
                     pRef.child("Minimum").setValue(pressureMin);
                     Toast.makeText(AddDataActivity.this, "max: "+pressureMax+"\n"+"min: "+pressureMin,Toast.LENGTH_SHORT).show();
@@ -127,6 +198,10 @@ public class AddDataActivity extends AppCompatActivity {
         builder.setTitle(R.string.insert_weight);
         builder.setView(weightDialogueView);
         eWeight = (EditText) weightDialogueView.findViewById(R.id.edit_weight);
+        tAlertOldDate = (TextView) weightDialogueView.findViewById(R.id.alert_old_date);
+        if (Integer.parseInt(myDate.replace("-",""))<Integer.parseInt(todayDate.replace("-",""))){
+            tAlertOldDate.setVisibility(View.VISIBLE);
+        }
         builder.setCancelable(false);
 
         builder.setPositiveButton(R.string.ok,null);
@@ -146,8 +221,7 @@ public class AddDataActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String weight = eWeight.getText().toString();
                 if (checkWeightData(weight)){
-                    Date currentTime = Calendar.getInstance().getTime();
-                    DatabaseReference wRef = myRef.child("Weight").child(currentTime.toString());
+                    DatabaseReference wRef = myRef.child("Weight").child(myDate);
                     wRef.child("Weight").setValue(weight);
                     Toast.makeText(AddDataActivity.this, "Peso: "+weight,Toast.LENGTH_SHORT).show();
                     weightDialogue.cancel();
@@ -166,6 +240,10 @@ public class AddDataActivity extends AppCompatActivity {
         builder.setTitle(R.string.smoke_today);
         builder.setView(smokeDialogueView);
         eSmoke = (RadioGroup) smokeDialogueView.findViewById(R.id.smoke_radiogroup);
+        tAlertOldDate = (TextView) smokeDialogueView.findViewById(R.id.alert_old_date);
+        if (Integer.parseInt(myDate.replace("-",""))<Integer.parseInt(todayDate.replace("-",""))){
+            tAlertOldDate.setVisibility(View.VISIBLE);
+        }
         builder.setCancelable(false);
 
         builder.setPositiveButton(R.string.ok,null);
@@ -188,8 +266,7 @@ public class AddDataActivity extends AppCompatActivity {
                     int radioId = eSmoke.indexOfChild(eSmoke.findViewById(id));
                     RadioButton b = (RadioButton) eSmoke.getChildAt(radioId);
                     String smoke = b.getText().toString();
-                    Date currentTime = Calendar.getInstance().getTime();
-                    DatabaseReference sRef = myRef.child("Smoke").child(currentTime.toString());
+                    DatabaseReference sRef = myRef.child("Smoke").child(myDate);
                     sRef.child("Smoke").setValue(smoke);
                     Toast.makeText(AddDataActivity.this, "Fumato: "+smoke,Toast.LENGTH_SHORT).show();
                     smokeDialogue.cancel();
@@ -207,7 +284,11 @@ public class AddDataActivity extends AppCompatActivity {
         builder.setTitle(R.string.medicine_today);
         builder.setView(medicineDialogueView);
         eMedicine = (RadioGroup) medicineDialogueView.findViewById(R.id.medicine_radiogroup);
-        builder.setCancelable(true);
+        tAlertOldDate = (TextView) medicineDialogueView.findViewById(R.id.alert_old_date);
+        if (Integer.parseInt(myDate.replace("-",""))<Integer.parseInt(todayDate.replace("-",""))){
+            tAlertOldDate.setVisibility(View.VISIBLE);
+        }
+        builder.setCancelable(false);
 
         builder.setPositiveButton(R.string.ok,null);
         builder.setNegativeButton(
@@ -229,8 +310,7 @@ public class AddDataActivity extends AppCompatActivity {
                     int radioId = eMedicine.indexOfChild(eMedicine.findViewById(id));
                     RadioButton b = (RadioButton) eMedicine.getChildAt(radioId);
                     String medicine = b.getText().toString();
-                    Date currentTime = Calendar.getInstance().getTime();
-                    DatabaseReference mRef = myRef.child("Medicine").child(currentTime.toString());
+                    DatabaseReference mRef = myRef.child("Medicine").child(myDate);
                     mRef.child("Medicine").setValue(medicine);
                     Toast.makeText(AddDataActivity.this, "Medicine: "+medicine,Toast.LENGTH_SHORT).show();
                     medicineDialogue.cancel();
@@ -240,6 +320,29 @@ public class AddDataActivity extends AppCompatActivity {
             }
         });
     }
+
+    /*private void AlertOldDate() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View alertOldDateView = inflater.inflate(R.layout.alert_old_date_dialogue,null);
+        builder.setTitle(R.string.medicine_today);
+        builder.setView(alertOldDateView);
+        builder.setCancelable(false);
+        builder.setPositiveButton(
+                R.string.ok,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        alert = true;
+                    }
+                });
+        builder.setNegativeButton(
+                R.string.cancel,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+    }*/
 
     private boolean checkPressureData(String max, String min){
         boolean check = true;
