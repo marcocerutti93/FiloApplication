@@ -23,7 +23,10 @@
             android:name=".ForgotPasswordActivity"
             android:label="@string/forgot_password_activity_title"
             android:parentActivityName=".LoginActivity" />
-
+        <activity
+            android:name=".MedicineActivity"
+            android:label="@string/medicine_activity_title"
+            ></activity>
     </application>
 
 </manifest>

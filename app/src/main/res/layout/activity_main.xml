@@ -24,7 +24,7 @@
             />
 
         <ImageButton
-            android:id="@+id/b2"
+            android:id="@+id/medicine_button"
             android:scaleType="fitCenter"
             android:layout_width="match_parent"
             android:layout_weight="1.0"
