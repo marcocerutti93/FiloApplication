@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/alert_old_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/alert_old_date"
+        android:textAlignment="center"
+        android:textSize="@dimen/text"
+        android:textColor="@color/colorAlert"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/physical_activity_type1"
+        android:layout_below="@id/alert_old_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/pa_type1"
+        android:textSize="@dimen/text"/>
+
+    <RelativeLayout
+        android:id="@+id/relative_physical_activity_type1"
+        android:layout_alignBaseline="@id/physical_activity_type1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/physical_activity_type1"
+        android:layout_toEndOf="@id/physical_activity_type1">
+
+        <TextView
+            android:id="@+id/duration_type1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/margin"
+            android:text="@string/minutes"
+            android:textSize="@dimen/text"/>
+
+        <EditText
+            android:id="@+id/edit_physical_activity_type1"
+            android:layout_toLeftOf="@id/duration_type1"
+            android:layout_toStartOf="@id/duration_type1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:hint="@string/duration"
+            android:textSize="@dimen/text"
+            android:inputType="numberDecimal"
+            />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/physical_activity_type2"
+        android:layout_below="@id/physical_activity_type1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/pa_type2"
+        android:textSize="@dimen/text"/>
+
+    <RelativeLayout
+        android:id="@+id/relative_physical_activity_type2"
+        android:layout_below="@id/relative_physical_activity_type1"
+        android:layout_alignBaseline="@id/physical_activity_type2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/relative_physical_activity_type1"
+        android:layout_alignStart="@id/relative_physical_activity_type1"
+        android:layout_toRightOf="@id/physical_activity_type2"
+        android:layout_toEndOf="@id/physical_activity_type2">
+
+        <TextView
+            android:id="@+id/duration_type2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/margin"
+            android:text="@string/minutes"
+            android:textSize="@dimen/text"/>
+
+        <EditText
+            android:id="@+id/edit_physical_activity_type2"
+            android:layout_toLeftOf="@id/duration_type2"
+            android:layout_toStartOf="@id/duration_type2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:hint="@string/duration"
+            android:textSize="@dimen/text"
+            android:inputType="numberDecimal"
+            />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/physical_activity_type3"
+        android:layout_below="@id/physical_activity_type2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:layout_marginBottom="@dimen/half_margin"
+        android:text="@string/pa_type3"
+        android:textSize="@dimen/text"/>
+
+    <RelativeLayout
+        android:id="@+id/relative_physical_activity_type3"
+        android:layout_below="@id/relative_physical_activity_type2"
+        android:layout_alignBaseline="@id/physical_activity_type3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/relative_physical_activity_type2"
+        android:layout_alignStart="@id/relative_physical_activity_type2"
+        android:layout_toRightOf="@id/physical_activity_type3"
+        android:layout_toEndOf="@id/physical_activity_type3">
+
+        <TextView
+            android:id="@+id/duration_type3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/margin"
+            android:text="@string/minutes"
+            android:textSize="@dimen/text"/>
+
+        <EditText
+            android:id="@+id/edit_physical_activity_type3"
+            android:layout_toLeftOf="@id/duration_type3"
+            android:layout_toStartOf="@id/duration_type3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:hint="@string/duration"
+            android:textSize="@dimen/text"
+            android:inputType="numberDecimal"
+            />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/physical_activity_type4"
+        android:layout_below="@id/physical_activity_type3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:layout_marginBottom="@dimen/half_margin"
+        android:text="@string/pa_type4"
+        android:textSize="@dimen/text"/>
+
+    <RelativeLayout
+        android:id="@+id/relative_physical_activity_type4"
+        android:layout_below="@id/relative_physical_activity_type3"
+        android:layout_alignBaseline="@id/physical_activity_type4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/relative_physical_activity_type3"
+        android:layout_alignStart="@id/relative_physical_activity_type3"
+        android:layout_toRightOf="@id/physical_activity_type4"
+        android:layout_toEndOf="@id/physical_activity_type4">
+
+        <TextView
+            android:id="@+id/duration_type4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/margin"
+            android:text="@string/minutes"
+            android:textSize="@dimen/text"/>
+
+        <EditText
+            android:id="@+id/edit_physical_activity_type4"
+            android:layout_toLeftOf="@id/duration_type4"
+            android:layout_toStartOf="@id/duration_type4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:hint="@string/duration"
+            android:textSize="@dimen/text"
+            android:inputType="numberDecimal"
+            />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
