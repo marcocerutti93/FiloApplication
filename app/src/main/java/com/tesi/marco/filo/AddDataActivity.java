@@ -220,6 +220,7 @@ public class AddDataActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(AddDataActivity.this, getString(R.string.error_out_of_scale), Toast.LENGTH_SHORT).show();
                     }
+
                 } else {
                     Toast.makeText(AddDataActivity.this, getString(R.string.error_dialog_ok), Toast.LENGTH_SHORT).show();
                 }
@@ -516,6 +517,29 @@ public class AddDataActivity extends AppCompatActivity {
         });
     }
     */
+
+    /*private void AlertOldDate() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View alertOldDateView = inflater.inflate(R.layout.alert_old_date_dialogue,null);
+        builder.setTitle(R.string.medicine_today);
+        builder.setView(alertOldDateView);
+        builder.setCancelable(false);
+        builder.setPositiveButton(
+                R.string.ok,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        alert = true;
+                    }
+                });
+        builder.setNegativeButton(
+                R.string.cancel,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+    }*/
 
     private boolean checkPressureData(String max, String min){
         boolean check = true;
