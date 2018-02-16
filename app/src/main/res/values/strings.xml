@@ -6,7 +6,7 @@
     <string name="forgot_password_activity_title">Recupero Password</string>
     <string name="action_recover_password">Recupera Password</string>
     <string name="email_sent">Email inviata</string>
-    <string name="medicine_activity_title">Terapia</string>
+    <string name="therapy_activity_title">Terapia</string>
     <string name="add_data_button_text">REGISTRA DATI</string>
     <string name="medicine_button_text">TERAPIA</string>
     <string name="patient_information_button_text">CARTELLA CLINICA</string>
@@ -32,8 +32,15 @@
     <string name="forgot_password">Password dimenticata</string>
     <string name="info_not_present">- - - - - -</string>
 
+    <string name="personal_data">ANAGRAFICA</string>
+    <string name="risk_factors">FATTORI DI RISCHIO</string>
+    <string name="status">STATUS</string>
+
     <string name="patient">Paziente:</string>
     <string name="date_of_birth">Data di nascita:</string>
+    <string name="place_of_birth">Luogo di nascita:</string>
+    <string name="residency">Residenza:</string>
+    <string name="telephone">Telefono:</string>
     <string name="fiscal_code">Codice Fiscale:</string>
     <string name="gender">Sesso:</string>
     <string name="male">Maschio</string>
@@ -44,16 +51,16 @@
     <string name="hypertension">Iperteso:</string>
     <string name="dyslipidemia">Dislipidemico:</string>
     <string name="diabetic">Diabetico:</string>
-    <string name="previous_heart_attack">Pregresso infarto:</string>
-    <string name="previous_angioplasty">Pregressa angioplastica:</string>
+    <string name="familiarity">Familiarità per malattia coronarica:</string>
+    <string name="previous_chemotherapy">Pregressa chemioterapia:</string>
     <string name="left_ventricular_function">Funzione ventricolare sinistra:</string>
-    <string name="creatinine">Creatinina [mg/dl]</string>
-    <string name="number_of_ill_vessel">Numero di vasi malati:</string>
-    <string name="number_of_treated_vessel">Numero di vasi trattati:</string>
-    <string name="angioplasty_type1">Angioplastica su tronco comune:</string>
-    <string name="angioplasty_type2">Angioplastica su iva:</string>
-    <string name="angioplasty_type3">Angioplastica circonflessa:</string>
-    <string name="angioplasty_type4">Angioplastica su coronaria destra:</string>
+    <string name="previous_radiotherapy">Pregressa radioterapia:</string>
+    <string name="hiv_in_therapy">HIV in terapia::</string>
+    <string name="kidney_failure">Grave insufficienza renale:</string>
+    <string name="allergies">Allergie:</string>
+    <string name="bmi">BMI(indice di massa corporea):</string>
+    <string name="previous_stemi">Pregresso STEMI:</string>
+    <string name="previous_nstemi">Pregresso N-STEMI/ACS:</string>
     <string name="angina">Angina:</string>
     <string name="Acute_coronaric_syndrome">Sindrome coronarica acuta:</string>
 
@@ -89,7 +96,7 @@
     <string name="glycemia_unit">mg/dl</string>
     <string name="add_event">Evento</string>
     <string name="action_different_date_data">Scegli la data</string>
-    
+
     <string name="event_therapy">Cambio Terapia</string>
     <string name="event_physical_examination">Visita Medica</string>
     <string name="event_hospitalization">Ricovero Ospedaliero</string>
@@ -102,4 +109,20 @@
     <string name="error_dialog_ok">Dati Richiesti.\nSe non vuoi inserire nessun dato, clicca su Annulla.</string>
     <string name="error_pa_dialog">Inserici almeno un dato.\nSe non vuoi inserire nessun dato, clicca su Annulla.</string>
     <string name="error_out_of_scale">Valore Errato</string>
+
+    <string name="hour8">8.00</string>
+    <string name="hour9">9.00</string>
+    <string name="hour10">10.00</string>
+    <string name="hour11">11.00</string>
+    <string name="hour12">12.00</string>
+    <string name="hour13">13.00</string>
+    <string name="hour14">14.00</string>
+    <string name="hour15">15.00</string>
+    <string name="hour16">16.00</string>
+    <string name="hour17">17.00</string>
+    <string name="hour18">18.00</string>
+    <string name="hour19">19.00</string>
+    <string name="hour20">20.00</string>
+    <string name="after_meal">dopo i pasti</string>
+
 </resources>
