@@ -24,15 +24,15 @@ import java.util.Calendar;
 public class PatientDataActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private TextView tvName, tvDob, tvCode;
-    private TextView tvGender, tvSmoker, tvHypertens, tvDyslip, tvDM, tvPreStr, tvPreAngio, tvLVEF;
-    private TextView tvCrea, tvNumVess, tvTreatVess, tvTrCom, tvIva, tvCirco, tvCorDx;
+    private TextView tvName, tvCode, tvDob, tvPob, tvRes, tvTel, tvGender;
+    private TextView tvSmoker, tvHypertens, tvDyslip, tvDM, tvFam, tvChemo, tvRadio, tvHiv, tvKidFail, tvAllerg;
+    private TextView tvBMI, tvPreSTEMI, tvPreNSTEMI, tvLVEF  ;
     private FirebaseDatabase db;
-    private DatabaseReference userRef, infoRef;
-    private String dateOfBirth, code;
+    private DatabaseReference userRef, personalDataRef, riskFactorsRef, statusRef;
     private String Uid, dispName;
-    private String gender, smoker, hypertens, dyslip, dm, preStr, preAngio, LVEF;
-    private String creatinine, numIllVess, numTreatVess, angioTrCom, angioIva, angioCirco, angioCorDx;
+    private String code, dateOfBirth, placeOfBirth, residency, telephone, gender;
+    private String smoker, hypertens, dyslip, dm, familiarity, preChemo, preRadio, hiv, kidFail, allergies;
+    private String bmi, preStemi, preNstemi, LVEF;
     private View mProgressView;
 
     @Override
@@ -45,23 +45,26 @@ public class PatientDataActivity extends AppCompatActivity {
 
         // Views
         tvName = (TextView) findViewById(R.id.patient_name);
-        tvDob = (TextView) findViewById(R.id.date_of_birth_data);
         tvCode = (TextView) findViewById(R.id.fiscal_code_data);
-        tvGender = (TextView) findViewById(R.id.gender_value);
-        tvSmoker = (TextView) findViewById(R.id.smoker_value);
-        tvHypertens = (TextView) findViewById(R.id.hypertension_value);
-        tvDyslip = (TextView) findViewById(R.id.dyslipidemia_value);
-        tvDM = (TextView) findViewById(R.id.diabetic_value);
-        tvPreStr = (TextView) findViewById(R.id.previous_heart_attack_value);
-        tvPreAngio = (TextView) findViewById(R.id.previous_angioplasty_value);
-        tvLVEF = (TextView) findViewById(R.id.left_ventricular_function_value);
-        tvCrea = (TextView) findViewById(R.id.creatinine_value);
-        tvNumVess = (TextView) findViewById(R.id.number_of_ill_vessel_value);
-        tvTreatVess = (TextView) findViewById(R.id.number_of_treated_vessel_value);
-        tvTrCom = (TextView) findViewById(R.id.angioplasty_type1_value);
-        tvIva = (TextView) findViewById(R.id.angioplasty_type2_value);
-        tvCirco = (TextView) findViewById(R.id.angioplasty_type3_value);
-        tvCorDx = (TextView) findViewById(R.id.angioplasty_type4_value);
+        tvDob = (TextView) findViewById(R.id.date_of_birth_data);
+        tvPob = (TextView) findViewById(R.id.place_of_birth_data);
+        tvRes = (TextView) findViewById(R.id.residency_data);
+        tvTel = (TextView) findViewById(R.id.telephone_data);
+        tvGender = (TextView) findViewById(R.id.gender_data);
+        tvSmoker = (TextView) findViewById(R.id.smoker_data);
+        tvHypertens = (TextView) findViewById(R.id.hypertension_data);
+        tvDyslip = (TextView) findViewById(R.id.dyslipidemia_data);
+        tvDM = (TextView) findViewById(R.id.diabetic_data);
+        tvFam = (TextView) findViewById(R.id.familiarity_data);
+        tvChemo = (TextView) findViewById(R.id.previous_chemotherapy_data);
+        tvRadio = (TextView) findViewById(R.id.previous_radiotherapy_data);
+        tvHiv = (TextView) findViewById(R.id.hiv_data);
+        tvKidFail = (TextView) findViewById(R.id.kidney_failure_data);
+        tvAllerg = (TextView) findViewById(R.id.allergies_data);
+        tvBMI = (TextView) findViewById(R.id.bmi_data);
+        tvPreSTEMI = (TextView) findViewById(R.id.previous_stemi_data);
+        tvPreNSTEMI = (TextView) findViewById(R.id.previous_nstemi_data);
+        tvLVEF = (TextView) findViewById(R.id.left_ventricular_function_data);
 
         auth = FirebaseAuth.getInstance();
         Uid = auth.getCurrentUser().getUid();
@@ -70,20 +73,42 @@ public class PatientDataActivity extends AppCompatActivity {
         if (dispName != null){
             tvName.setText(dispName);
         } else {
-            tvName.setText("Non presente");
+            tvName.setText(getString(R.string.info_not_present));
         }
 
         db = FirebaseDatabase.getInstance();
         userRef = db.getReference().child("patients").child(Uid);
-        infoRef = userRef.child("GeneralInformation");
+        personalDataRef = userRef.child("PersonalData");
+        riskFactorsRef = userRef.child("RiskFactors");
+        statusRef = userRef.child("Status");
 
-        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        personalDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                dateOfBirth = dataSnapshot.child("DateOfBirth").getValue().toString();
                 code = dataSnapshot.child("FiscalCode").getValue().toString();
-                tvDob.setText(dateOfBirth);
                 tvCode.setText(code);
+                dateOfBirth = dataSnapshot.child("DateOfBirth").getValue().toString();
+                tvDob.setText(dateOfBirth);
+                if (dataSnapshot.hasChild("Birthplace")) {
+                    placeOfBirth = dataSnapshot.child("Birthplace").getValue().toString();
+                    tvPob.setText(placeOfBirth);
+                }
+                if (dataSnapshot.hasChild("ResidencyCity") && !dataSnapshot.hasChild("ResidencyRoad")) {
+                    residency = dataSnapshot.child("ResidencyCity").getValue().toString();
+                    tvRes.setText(residency);
+                }else if (dataSnapshot.hasChild("ResidencyCity") && dataSnapshot.hasChild("ResidencyRoad")) {
+                    residency = dataSnapshot.child("ResidencyCity").getValue().toString() + "\n" +
+                            dataSnapshot.child("ResidencyRoad").getValue().toString();
+                    tvRes.setText(residency);
+                }
+                if (dataSnapshot.hasChild("Telephone")) {
+                    telephone = dataSnapshot.child("Telephone").getValue().toString();
+                    tvTel.setText(telephone);
+                }
+                if (dataSnapshot.hasChild("Gender")) {
+                    gender = dataSnapshot.child("Gender").getValue().toString();
+                    tvGender.setText(gender);
+                }
 
                 mProgressView.setVisibility(View.GONE);
             }
@@ -94,13 +119,9 @@ public class PatientDataActivity extends AppCompatActivity {
             }
         });
 
-        infoRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        riskFactorsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild("Gender")) {
-                    gender = dataSnapshot.child("Gender").getValue().toString();
-                    tvGender.setText(gender);
-                }
                 if (dataSnapshot.hasChild("Smoker")) {
                     smoker = dataSnapshot.child("Smoker").getValue().toString();
                     tvSmoker.setText(smoker);
@@ -117,45 +138,60 @@ public class PatientDataActivity extends AppCompatActivity {
                     dm = dataSnapshot.child("Diabetic").getValue().toString();
                     tvDM.setText(dm);
                 }
-                if (dataSnapshot.hasChild("PreviousStroke")) {
-                    preStr = dataSnapshot.child("PreviousStroke").getValue().toString();
-                    tvPreStr.setText(preStr);
+                if (dataSnapshot.hasChild("Familiarity")) {
+                    familiarity = dataSnapshot.child("Familiarity").getValue().toString();
+                    tvFam.setText(familiarity);
                 }
-                if (dataSnapshot.hasChild("PreviousAngioplasty")) {
-                    preAngio = dataSnapshot.child("PreviousAngioplasty").getValue().toString();
-                    tvPreAngio.setText(preAngio);
+                if (dataSnapshot.hasChild("PreviousChemio")) {
+                    preChemo = dataSnapshot.child("PreviousChemio").getValue().toString();
+                    tvChemo.setText(preChemo);
+                }
+                if (dataSnapshot.hasChild("PreviousRadio")) {
+                    preRadio = dataSnapshot.child("PreviousRadio").getValue().toString();
+                    tvRadio.setText(preRadio);
+                }
+                if (dataSnapshot.hasChild("HIVinTherapy")) {
+                    hiv = dataSnapshot.child("HIVinTherapy").getValue().toString();
+                    tvHiv.setText(hiv);
+                }
+                if (dataSnapshot.hasChild("KidneyFailure")) {
+                    kidFail = dataSnapshot.child("KidneyFailure").getValue().toString();
+                    tvKidFail.setText(kidFail);
+                }
+                if (dataSnapshot.hasChild("Allergies")) {
+                    allergies = "";
+                    String[] allergiesSeparated = dataSnapshot.child("Allergies").getValue().toString().split(",");
+                    for (int i=0; i<allergiesSeparated.length; i++){
+                        allergies = allergies + allergiesSeparated[i].trim() + "\n";
+                    }
+                    tvAllerg.setText(allergies);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        statusRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChild("BMI")) {
+                    bmi = dataSnapshot.child("BMI").getValue().toString();
+                    tvBMI.setText(bmi);
+                }
+                if (dataSnapshot.hasChild("STEMI")) {
+                    preStemi = dataSnapshot.child("STEMI").getValue().toString();
+                    tvPreSTEMI.setText(preStemi);
+                }
+                if (dataSnapshot.hasChild("NSTEMIACS")) {
+                    preNstemi = dataSnapshot.child("NSTEMIACS").getValue().toString();
+                    tvPreNSTEMI.setText(preNstemi);
                 }
                 if (dataSnapshot.hasChild("LVEF")) {
                     LVEF = dataSnapshot.child("LVEF").getValue().toString();
                     tvLVEF.setText(LVEF);
-                }
-                if (dataSnapshot.hasChild("Creatinine")) {
-                    creatinine = dataSnapshot.child("Creatinine").getValue().toString();
-                    tvCrea.setText(creatinine);
-                }
-                if (dataSnapshot.hasChild("Multivessel")) {
-                    numIllVess = dataSnapshot.child("Multivessel").getValue().toString();
-                    tvNumVess.setText(numIllVess);
-                }
-                if (dataSnapshot.hasChild("MultiTreatment")) {
-                    numTreatVess = dataSnapshot.child("MultiTreatment").getValue().toString();
-                    tvTreatVess.setText(numTreatVess);
-                }
-                if (dataSnapshot.hasChild("AngioplasticaTroncoComune")) {
-                    angioTrCom = dataSnapshot.child("AngioplasticaTroncoComune").getValue().toString();
-                    tvTrCom.setText(angioTrCom);
-                }
-                if (dataSnapshot.hasChild("AngioplasticaSuIva")) {
-                    angioIva = dataSnapshot.child("AngioplasticaSuIva").getValue().toString();
-                    tvIva.setText(angioIva);
-                }
-                if (dataSnapshot.hasChild("AngioplasticaCirconflessa")) {
-                    angioCirco = dataSnapshot.child("AngioplasticaCirconflessa").getValue().toString();
-                    tvCirco.setText(angioCirco);
-                }
-                if (dataSnapshot.hasChild("AngioplasticaCoronariaDestra")) {
-                    angioCorDx = dataSnapshot.child("AngioplasticaCoronariaDestra").getValue().toString();
-                    tvCorDx.setText(angioCorDx);
                 }
             }
 

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         medicine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MedicineActivity.class));
+                startActivity(new Intent(MainActivity.this, TherapyActivity.class));
             }
         });
 
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, PatientDataActivity.class));
-                Toast.makeText(MainActivity.this,"pressed",Toast.LENGTH_SHORT).show();
             }
         });
 

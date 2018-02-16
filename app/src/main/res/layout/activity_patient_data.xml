@@ -34,10 +34,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/title_personal_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/personal_data"
+                android:textSize="@dimen/text"
+                android:textColor="@color/colorPrimaryDark"/>
+
             <RelativeLayout
                 android:id="@+id/name_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/title_personal_data"
                 android:layout_marginTop="@dimen/margin"
                 android:orientation="horizontal">
 
@@ -64,39 +74,10 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/date_of_birth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/name_surname"
-                android:layout_marginTop="@dimen/margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/date_of_birth_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/date_of_birth"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/margin" />
-
-                <TextView
-                    android:id="@+id/date_of_birth_data"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"                    android:textSize="@dimen/text"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/info_not_present"
-                    android:layout_margin="@dimen/margin" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/fiscal_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/date_of_birth"
+                android:layout_below="@id/name_surname"
                 android:layout_marginTop="@dimen/margin"
                 android:orientation="horizontal">
 
@@ -123,10 +104,130 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/gender"
+                android:id="@+id/date_of_birth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/fiscal_code"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/date_of_birth_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date_of_birth"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin" />
+
+                <TextView
+                    android:id="@+id/date_of_birth_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/place_of_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_of_birth"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/place_of_birth_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/place_of_birth"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin" />
+
+                <TextView
+                    android:id="@+id/place_of_birth_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/residency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/place_of_birth"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/residency_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/residency"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin" />
+
+                <TextView
+                    android:id="@+id/residency_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/residency"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/telephone_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telephone"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin" />
+
+                <TextView
+                    android:id="@+id/telephone_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/telephone"
                 android:layout_marginTop="@dimen/margin"
                 android:orientation="horizontal">
 
@@ -140,7 +241,7 @@
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/gender_value"
+                    android:id="@+id/gender_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -152,11 +253,21 @@
 
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/title_risk_factors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gender"
+                android:gravity="center_horizontal"
+                android:text="@string/risk_factors"
+                android:textSize="@dimen/text"
+                android:textColor="@color/colorPrimaryDark"/>
+
             <RelativeLayout
                 android:id="@+id/smoker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/gender"
+                android:layout_below="@id/title_risk_factors"
                 android:layout_marginTop="@dimen/margin"
                 android:orientation="horizontal">
 
@@ -170,7 +281,7 @@
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/smoker_value"
+                    android:id="@+id/smoker_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -200,7 +311,7 @@
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/hypertension_value"
+                    android:id="@+id/hypertension_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -230,7 +341,7 @@
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/dyslipidemia_value"
+                    android:id="@+id/dyslipidemia_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -260,7 +371,7 @@
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/diabetic_value"
+                    android:id="@+id/diabetic_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -273,7 +384,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/previous_heart_attack"
+                android:id="@+id/familiarity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/diabetic"
@@ -281,16 +392,16 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/previous_heart_attack_text"
+                    android:id="@+id/familiarity_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/previous_heart_attack"
+                    android:text="@string/familiarity"
                     android:textSize="@dimen/text"
                     android:textColor="@color/black"
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/previous_heart_attack_value"
+                    android:id="@+id/familiarity_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -303,24 +414,245 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/previous_angioplasty"
+                android:id="@+id/previous_chemotherapy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/previous_heart_attack"
+                android:layout_below="@id/familiarity"
                 android:layout_marginTop="@dimen/margin"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/previous_angioplasty_text"
+                    android:id="@+id/previous_chemotherapy_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/previous_angioplasty"
+                    android:text="@string/previous_chemotherapy"
                     android:textSize="@dimen/text"
                     android:textColor="@color/black"
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/previous_angioplasty_value"
+                    android:id="@+id/previous_chemotherapy_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/previous_radiotherapy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/previous_chemotherapy"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/previous_radiotherapy_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/previous_radiotherapy"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/previous_radiotherapy_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/hiv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/previous_radiotherapy"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/hiv_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hiv_in_therapy"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/hiv_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/kidney_failure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hiv"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/kidney_failure_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kidney_failure"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/kidney_failure_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/allergies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/kidney_failure"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/allergies_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allergies"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/allergies_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/title_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/allergies"
+                android:gravity="center_horizontal"
+                android:text="@string/status"
+                android:textSize="@dimen/text"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <RelativeLayout
+                android:id="@+id/bmi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_status"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/bmi_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bmi"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/bmi_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/previous_stemi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bmi"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/previous_stemi_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/previous_stemi"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/previous_stemi_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/info_not_present"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/previous_nstemi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/previous_stemi"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/previous_nstemi_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/previous_nstemi"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/previous_nstemi_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -336,7 +668,7 @@
                 android:id="@+id/left_ventricular_function"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/previous_angioplasty"
+                android:layout_below="@id/previous_nstemi"
                 android:layout_marginTop="@dimen/margin"
                 android:orientation="horizontal">
 
@@ -350,217 +682,7 @@
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/left_ventricular_function_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/info_not_present"
-                    android:layout_margin="@dimen/margin" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/creatinine"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/left_ventricular_function"
-                android:layout_marginTop="@dimen/margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/creatinine_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/creatinine"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/margin"/>
-
-                <TextView
-                    android:id="@+id/creatinine_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/info_not_present"
-                    android:layout_margin="@dimen/margin" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/number_of_ill_vessel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/creatinine"
-                android:layout_marginTop="@dimen/margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/number_of_ill_vessel_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_of_ill_vessel"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/margin"/>
-
-                <TextView
-                    android:id="@+id/number_of_ill_vessel_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/info_not_present"
-                    android:layout_margin="@dimen/margin" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/number_of_treated_vessel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/number_of_ill_vessel"
-                android:layout_marginTop="@dimen/margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/number_of_treated_vessel_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_of_treated_vessel"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/margin"/>
-
-                <TextView
-                    android:id="@+id/number_of_treated_vessel_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/info_not_present"
-                    android:layout_margin="@dimen/margin" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/angioplasty_type1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/number_of_treated_vessel"
-                android:layout_marginTop="@dimen/margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/angioplasty_type1_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/angioplasty_type1"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/margin"/>
-
-                <TextView
-                    android:id="@+id/angioplasty_type1_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/info_not_present"
-                    android:layout_margin="@dimen/margin" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/angioplasty_type2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/angioplasty_type1"
-                android:layout_marginTop="@dimen/margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/angioplasty_type2_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/angioplasty_type2"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/margin"/>
-
-                <TextView
-                    android:id="@+id/angioplasty_type2_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/info_not_present"
-                    android:layout_margin="@dimen/margin" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/angioplasty_type3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/angioplasty_type2"
-                android:layout_marginTop="@dimen/margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/angioplasty_type3_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/angioplasty_type3"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/margin"/>
-
-                <TextView
-                    android:id="@+id/angioplasty_type3_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/info_not_present"
-                    android:layout_margin="@dimen/margin" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/angioplasty_type4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/angioplasty_type3"
-                android:layout_marginTop="@dimen/margin"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/angioplasty_type4_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/angioplasty_type4"
-                    android:textSize="@dimen/text"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/margin"/>
-
-                <TextView
-                    android:id="@+id/angioplasty_type4_value"
+                    android:id="@+id/left_ventricular_function_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
