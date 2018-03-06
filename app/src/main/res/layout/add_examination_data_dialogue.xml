@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_add_examination_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/title_add_examination_data"
+        android:textAlignment="center"
+        android:textSize="@dimen/text"
+        android:textColor="@color/colorAccentDark"
+        />
+
+    <EditText
+        android:id="@+id/add_examination_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_add_examination_data"
+        android:layout_margin="@dimen/margin"
+        android:hint="@string/photo_name"
+        android:textSize="@dimen/text"
+        android:inputType="text"
+        />
+
+    <ImageButton
+        android:id="@+id/add_examination_photo"
+        android:contentDescription="@string/content_description_add_photo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_examination_name"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin"
+        android:background="@mipmap/photo_icon"/>
+
+</RelativeLayout>

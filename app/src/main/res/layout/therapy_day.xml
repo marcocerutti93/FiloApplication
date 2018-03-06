@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/title_therapy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/title_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text"
+            android:textColor="@color/black"
+            android:text="@string/time"
+            android:layout_margin="@dimen/margin"/>
+
+        <TextView
+            android:id="@+id/title_drugs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="@string/drug"
+            android:textSize="@dimen/text"
+            android:textColor="@color/colorAccent"
+            android:gravity="end"
+            android:layout_margin="@dimen/margin" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/time8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time8_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour8"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time8_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time8"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time9_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour9"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time9_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time9"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time10_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour10"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time10_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time10"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time11_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour11"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time11_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time11"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time12_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour12"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time12_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time12"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time13_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour13"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time13_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time13"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time14_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour14"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time14_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time14"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time15_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour15"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time15_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time15"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time16_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour16"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time16_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time16"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time17_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour17"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time17_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time17"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time18_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour18"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time18_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time18"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time19_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour19"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time19_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time19"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time20_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour20"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time20_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time20"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time21_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour21"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time21_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time21"
+                android:layout_marginTop="@dimen/margin"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time22_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/black"
+                    android:text="@string/hour22"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/time22_drugs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/margin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

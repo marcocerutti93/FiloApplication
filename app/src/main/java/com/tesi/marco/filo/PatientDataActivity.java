@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,12 +28,14 @@ public class PatientDataActivity extends AppCompatActivity {
     private TextView tvName, tvCode, tvDob, tvPob, tvRes, tvTel, tvGender;
     private TextView tvSmoker, tvHypertens, tvDyslip, tvDM, tvFam, tvChemo, tvRadio, tvHiv, tvKidFail, tvAllerg;
     private TextView tvBMI, tvPreSTEMI, tvPreNSTEMI, tvLVEF  ;
+    private TextView tvInternistica, tvCardiologica, tvLastVisit, tvAdvices;
     private FirebaseDatabase db;
-    private DatabaseReference userRef, personalDataRef, riskFactorsRef, statusRef;
+    private DatabaseReference userRef, personalDataRef, riskFactorsRef, statusRef, anamnesiRef;
     private String Uid, dispName;
     private String code, dateOfBirth, placeOfBirth, residency, telephone, gender;
     private String smoker, hypertens, dyslip, dm, familiarity, preChemo, preRadio, hiv, kidFail, allergies;
     private String bmi, preStemi, preNstemi, LVEF;
+    private String internistica, cardiologica, lastVisit, advices;
     private View mProgressView;
 
     @Override
@@ -66,6 +69,11 @@ public class PatientDataActivity extends AppCompatActivity {
         tvPreNSTEMI = (TextView) findViewById(R.id.previous_nstemi_data);
         tvLVEF = (TextView) findViewById(R.id.left_ventricular_function_data);
 
+        tvInternistica = (TextView) findViewById(R.id.internistica_text);
+        tvCardiologica = (TextView) findViewById(R.id.cardiologica_text);
+        tvLastVisit = (TextView) findViewById(R.id.last_visit_text);
+        tvAdvices =(TextView) findViewById(R.id.advices_text);
+
         auth = FirebaseAuth.getInstance();
         Uid = auth.getCurrentUser().getUid();
         dispName = auth.getCurrentUser().getDisplayName();
@@ -81,6 +89,7 @@ public class PatientDataActivity extends AppCompatActivity {
         personalDataRef = userRef.child("PersonalData");
         riskFactorsRef = userRef.child("RiskFactors");
         statusRef = userRef.child("Status");
+        anamnesiRef = userRef.child("Anamnesis");
 
         personalDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -200,5 +209,50 @@ public class PatientDataActivity extends AppCompatActivity {
 
             }
         });
+
+        anamnesiRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChild("Internistica")) {
+                    internistica = dataSnapshot.child("Internistica").getValue().toString();
+                    tvInternistica.setText(internistica);
+                } else {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)tvInternistica.getLayoutParams();
+                    layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+                    tvInternistica.setLayoutParams(layoutParams);
+                }
+                if (dataSnapshot.hasChild("Cardiologica")) {
+                    cardiologica = dataSnapshot.child("Cardiologica").getValue().toString();
+                    tvCardiologica.setText(cardiologica);
+                } else {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)tvCardiologica.getLayoutParams();
+                    layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+                    tvCardiologica.setLayoutParams(layoutParams);
+                }
+                if (dataSnapshot.hasChild("Odierna")) {
+                    lastVisit = dataSnapshot.child("Odierna").getValue().toString();
+                    tvLastVisit.setText(lastVisit);
+                } else {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)tvLastVisit.getLayoutParams();
+                    layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+                    tvLastVisit.setLayoutParams(layoutParams);
+                }
+                if (dataSnapshot.hasChild("Consigli")) {
+                    advices = dataSnapshot.child("Consigli").getValue().toString();
+                    tvAdvices.setText(advices);
+                } else {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)tvAdvices.getLayoutParams();
+                    layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+                    tvAdvices.setLayoutParams(layoutParams);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 }

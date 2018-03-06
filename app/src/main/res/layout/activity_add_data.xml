@@ -1,67 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tesi.marco.filo.AddDataActivity">
 
-    <Button
-        android:id="@+id/add_pressure_data"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin"
-        android:text="@string/add_pressure_data" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/add_weight_data"
-        android:layout_below="@id/add_pressure_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_weight_data" />
+        <Button
+            android:id="@+id/add_pressure_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:text="@string/add_pressure_data" />
 
-    <Button
-        android:id="@+id/add_smoke_data"
-        android:layout_below="@id/add_weight_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_smoke_data" />
+        <Button
+            android:id="@+id/add_weight_data"
+            android:layout_below="@id/add_pressure_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:text="@string/add_weight_data" />
 
-    <!--<Button
-        android:id="@+id/add_medicine_data"
-        android:layout_below="@id/add_smoke_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_medicine_data" />-->
+        <Button
+            android:id="@+id/add_smoke_data"
+            android:layout_below="@id/add_weight_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:text="@string/add_smoke_data" />
 
-    <Button
-        android:id="@+id/add_physical_activity_data"
-        android:layout_below="@id/add_smoke_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_physical_activity_data"/>
+        <Button
+            android:id="@+id/add_physical_activity_data"
+            android:layout_below="@id/add_smoke_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:text="@string/add_physical_activity_data"/>
 
-    <Button
-        android:id="@+id/add_heart_rate_data"
-        android:layout_below="@id/add_physical_activity_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_heart_rate_data"/>
+        <Button
+            android:id="@+id/add_heart_rate_data"
+            android:layout_below="@id/add_physical_activity_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:text="@string/add_heart_rate_data"/>
 
-    <Button
-        android:id="@+id/add_glycemia_data"
-        android:layout_below="@id/add_heart_rate_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_glycemia_data"/>
+        <Button
+            android:id="@+id/add_glycemia_data"
+            android:layout_below="@id/add_heart_rate_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:text="@string/add_glycemia_data"/>
 
-    <Button
-        android:id="@+id/add_event"
-        android:layout_below="@id/add_glycemia_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_event"/>
+        <Button
+            android:id="@+id/add_event"
+            android:layout_below="@id/add_glycemia_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:text="@string/add_event"/>
+
+
+    </RelativeLayout>
 
 
 
-</RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_change_therapy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/title_change_therapy"
+        android:textAlignment="center"
+        android:textSize="@dimen/text"
+        android:textColor="@color/colorAccentDark" />
+
+    <RadioGroup
+        android:id="@+id/therapy_radiogroup"
+        android:layout_below="@id/title_change_therapy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/personal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin"
+            android:checked="false"
+            android:textSize="@dimen/text"
+            android:text="@string/personal"/>
+
+        <RadioButton
+            android:id="@+id/physician"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin"
+            android:checked="false"
+            android:textSize="@dimen/text"
+            android:text="@string/physician"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/description_change_therapy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/therapy_radiogroup"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/description_change_therapy"
+        android:textAlignment="center"
+        android:textSize="@dimen/text"
+        android:textColor="@color/colorAccentDark" />
+
+    <EditText
+        android:id="@+id/description_change_therapy_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description_change_therapy"
+        android:hint="@string/description"
+        android:textSize="@dimen/text"
+        android:inputType="textMultiLine"
+        android:gravity="top|start"
+        android:lines="4" />
+
+</RelativeLayout>

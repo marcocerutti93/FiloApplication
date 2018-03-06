@@ -29,7 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class AddDataActivity extends AppCompatActivity {
 
@@ -37,10 +39,10 @@ public class AddDataActivity extends AppCompatActivity {
     private Button HeartRateButton, GlycemiaButton, EventButton;
     private EditText ePressureMax, ePressureMin, eWeight, eWalk, eRun, eBike, eGym, eHeartRate, eGlycemia;
     private TextView tAlertOldDate;
-    private RadioGroup eSmoke, eMedicine;
+    private RadioGroup eSmoke;
     private FirebaseAuth mAuth;
     private String Uid;
-    private DatabaseReference myRef;
+    private DatabaseReference myRef, alertRef;
     private String myDate, todayDate;
 
     @Override
@@ -52,6 +54,7 @@ public class AddDataActivity extends AppCompatActivity {
         Uid = mAuth.getCurrentUser().getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference("data").child(Uid);
+        alertRef = database.getReference("patientsUid").child(Uid);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ITALIAN);
         myDate = dateFormat.format(Calendar.getInstance().getTime());
@@ -60,7 +63,6 @@ public class AddDataActivity extends AppCompatActivity {
         PressureButton = (Button) findViewById(R.id.add_pressure_data);
         WeightButton = (Button) findViewById(R.id.add_weight_data);
         SmokeButton = (Button) findViewById(R.id.add_smoke_data);
-        //MedicineButton = (Button) findViewById(R.id.add_medicine_data);
         PhysicalActivityButton = (Button) findViewById(R.id.add_physical_activity_data);
         HeartRateButton = (Button) findViewById(R.id.add_heart_rate_data);
         GlycemiaButton = (Button) findViewById(R.id.add_glycemia_data);
@@ -69,7 +71,7 @@ public class AddDataActivity extends AppCompatActivity {
         PressureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddPressureData(myRef);
+                AddPressureData();
             }
         });
 
@@ -86,13 +88,6 @@ public class AddDataActivity extends AppCompatActivity {
                 AddSmokeData();
             }
         });
-
-        /*MedicineButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddMedicineData();
-            }
-        });*/
 
         PhysicalActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,7 +172,7 @@ public class AddDataActivity extends AppCompatActivity {
     }
 
 
-    private void AddPressureData(final DatabaseReference myRef) {
+    private void AddPressureData() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View pressureDialogueView = inflater.inflate(R.layout.pressure_dialogue,null);
@@ -213,6 +208,12 @@ public class AddDataActivity extends AppCompatActivity {
                 String pressureMin = ePressureMin.getText().toString();
                 if (checkPressureData(pressureMax,pressureMin)){
                     if (checkPressureValue(pressureMax,pressureMin)){
+                        if (Double.parseDouble(pressureMax)>=180.0 || Double.parseDouble(pressureMax)<=90.0 ||
+                                Double.parseDouble(pressureMin)>=100.0 || Double.parseDouble(pressureMin)<=50.0){
+                            Map<String,Object> update = new HashMap<>();
+                            update.put("Alert", true);
+                            alertRef.updateChildren(update);
+                        }
                         DatabaseReference pRef = myRef.child("Pressure").child(myDate);
                         pRef.child("Maximum").setValue(pressureMax);
                         pRef.child("Minimum").setValue(pressureMin);
@@ -413,6 +414,11 @@ public class AddDataActivity extends AppCompatActivity {
                 String heartRate = eHeartRate.getText().toString();
                 if (checkHeartRateData(heartRate)){
                     if (checkHeartRateValue(heartRate)){
+                        if (Double.parseDouble(heartRate)>=150.0) {
+                            Map<String,Object> update = new HashMap<>();
+                            update.put("Alert", true);
+                            alertRef.updateChildren(update);
+                        }
                         DatabaseReference wRef = myRef.child("HeartRate").child(myDate);
                         wRef.child("HeartRate").setValue(heartRate);
                         heartRateDialogue.cancel();
@@ -459,6 +465,11 @@ public class AddDataActivity extends AppCompatActivity {
                 String glycemia = eGlycemia.getText().toString();
                 if (checkGlycemiaData(glycemia)){
                     if (checkGlycemiaValue(glycemia)) {
+                        if (Double.parseDouble(glycemia)>=250.0 || Double.parseDouble(glycemia)<=80.0) {
+                            Map<String,Object> update = new HashMap<>();
+                            update.put("Alert", true);
+                            alertRef.updateChildren(update);
+                        }
                         DatabaseReference wRef = myRef.child("Glycemia").child(myDate);
                         wRef.child("Glycemia").setValue(glycemia);
                         glycemiaDialogue.cancel();
@@ -472,74 +483,6 @@ public class AddDataActivity extends AppCompatActivity {
         });
 
     }
-
-/*    private void AddMedicineData() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-        View medicineDialogueView = inflater.inflate(R.layout.medicine_dialogue,null);
-        builder.setTitle(R.string.medicine_today);
-        builder.setView(medicineDialogueView);
-        eMedicine = (RadioGroup) medicineDialogueView.findViewById(R.id.medicine_radiogroup);
-        tAlertOldDate = (TextView) medicineDialogueView.findViewById(R.id.alert_old_date);
-        if (Integer.parseInt(myDate.replace("-",""))<Integer.parseInt(todayDate.replace("-",""))){
-            tAlertOldDate.setVisibility(View.VISIBLE);
-        }
-        builder.setCancelable(false);
-
-        builder.setPositiveButton(R.string.ok,null);
-        builder.setNegativeButton(
-                R.string.cancel,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        final AlertDialog medicineDialogue = builder.create();
-        medicineDialogue.show();
-        Button ok = medicineDialogue.getButton(DialogInterface.BUTTON_POSITIVE);
-        ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (eMedicine.getCheckedRadioButtonId()!=-1){
-                    int id = eMedicine.getCheckedRadioButtonId();
-                    int radioId = eMedicine.indexOfChild(eMedicine.findViewById(id));
-                    RadioButton b = (RadioButton) eMedicine.getChildAt(radioId);
-                    String medicine = b.getText().toString();
-                    DatabaseReference mRef = myRef.child("Medicine").child(myDate);
-                    mRef.child("Medicine").setValue(medicine);
-                    Toast.makeText(AddDataActivity.this, "Medicine: "+medicine,Toast.LENGTH_SHORT).show();
-                    medicineDialogue.cancel();
-                } else {
-                    Toast.makeText(AddDataActivity.this, getString(R.string.error_dialog_ok), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-    */
-
-    /*private void AlertOldDate() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-        View alertOldDateView = inflater.inflate(R.layout.alert_old_date_dialogue,null);
-        builder.setTitle(R.string.medicine_today);
-        builder.setView(alertOldDateView);
-        builder.setCancelable(false);
-        builder.setPositiveButton(
-                R.string.ok,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        alert = true;
-                    }
-                });
-        builder.setNegativeButton(
-                R.string.cancel,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-    }*/
 
     private boolean checkPressureData(String max, String min){
         boolean check = true;
