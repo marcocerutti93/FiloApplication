@@ -55,7 +55,7 @@
             android:layout_marginBottom="@dimen/half_margin"
             android:hint="@string/duration"
             android:textSize="@dimen/text"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             />
 
 
@@ -104,7 +104,7 @@
             android:layout_marginBottom="@dimen/half_margin"
             android:hint="@string/duration"
             android:textSize="@dimen/text"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             />
 
 
@@ -154,7 +154,7 @@
             android:layout_marginBottom="@dimen/half_margin"
             android:hint="@string/duration"
             android:textSize="@dimen/text"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             />
 
 
@@ -204,7 +204,7 @@
             android:layout_marginBottom="@dimen/half_margin"
             android:hint="@string/duration"
             android:textSize="@dimen/text"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             />
 
 

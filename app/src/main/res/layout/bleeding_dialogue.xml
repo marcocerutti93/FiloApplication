@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_bleeding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/title_bleeding"
+        android:textAlignment="center"
+        android:textSize="@dimen/text"
+        android:textColor="@color/colorAccentDark"
+        />
+
+    <RelativeLayout
+        android:id="@+id/relative_physical_activity_type1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_bleeding">
+
+        <TextView
+            android:id="@+id/duration_bleeding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/margin"
+            android:text="@string/minutes"
+            android:textSize="@dimen/text"/>
+
+        <EditText
+            android:id="@+id/edit_duration_bleeding"
+            android:layout_toLeftOf="@id/duration_bleeding"
+            android:layout_toStartOf="@id/duration_bleeding"
+            android:layout_alignBaseline="@id/duration_bleeding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:hint="@string/duration"
+            android:textSize="@dimen/text"
+            android:inputType="number"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

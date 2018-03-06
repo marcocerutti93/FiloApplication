@@ -2,16 +2,20 @@
     <string name="app_name">Filo</string>
     <string name="add_data_title_today">Filo - Oggi</string>
     <string name="add_event_title">Filo - Aggiungi Evento</string>
+    <string name="history_activity_title">Filo - Cartella Clinica</string>
 
     <string name="registration_activity_title">Registra paziente</string>
     <string name="forgot_password_activity_title">Recupero Password</string>
     <string name="action_recover_password">Recupera Password</string>
     <string name="email_sent">Email inviata</string>
+    <string name="error_password_reset">Impossibile inviare l\'Email.\nControllare che l\'indirizzo sia corretto.</string>
     <string name="therapy_activity_title">Terapia</string>
     <string name="add_data_button_text">REGISTRA DATI</string>
     <string name="medicine_button_text">TERAPIA</string>
     <string name="patient_information_button_text">CARTELLA CLINICA</string>
     <string name="logout_button_text">ESCI</string>
+
+    <string name="developed_by">Developed by\nPolitecnico di Torino</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -26,9 +30,11 @@
     <string name="error_field_required">Campo richiesto</string>
     <string name="type_of_password">La password deve essere almeno di 7 caratteri</string>
     <string name="action_logout">Logout</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_invalid_email">Questa Email non è valida</string>
+    <string name="error_invalid_password">Password troppo corta</string>
+    <string name="invalid_credential_exception">Password errata</string>
+    <string name="invalid_user_exception">Non esiste nessun utente con queste credenziali.
+        Verificare di aver inserito Email e Password correttamente.</string>
     <string name="value">Valore</string>
     <string name="forgot_password">Password dimenticata</string>
     <string name="info_not_present">- - - - - -</string>
@@ -36,6 +42,7 @@
     <string name="personal_data">ANAGRAFICA</string>
     <string name="risk_factors">FATTORI DI RISCHIO</string>
     <string name="status">STATUS</string>
+    <string name="anamnesis">ANAMNESI</string>
 
     <string name="patient">Paziente:</string>
     <string name="date_of_birth">Data di nascita:</string>
@@ -56,19 +63,23 @@
     <string name="previous_chemotherapy">Pregressa chemioterapia:</string>
     <string name="left_ventricular_function">Funzione ventricolare sinistra:</string>
     <string name="previous_radiotherapy">Pregressa radioterapia:</string>
-    <string name="hiv_in_therapy">HIV in terapia::</string>
+    <string name="hiv_in_therapy">HIV in terapia:</string>
     <string name="kidney_failure">Grave insufficienza renale:</string>
     <string name="allergies">Allergie:</string>
     <string name="bmi">BMI(indice di massa corporea):</string>
     <string name="previous_stemi">Pregresso STEMI:</string>
     <string name="previous_nstemi">Pregresso N-STEMI/ACS:</string>
-    <string name="angina">Angina:</string>
-    <string name="Acute_coronaric_syndrome">Sindrome coronarica acuta:</string>
+    <string name="internistica">Anamnesi Internistica</string>
+    <string name="cardiologica">Anamnesi Cardiologica</string>
+    <string name="last_visit">Ultima Visita</string>
+    <string name="advices">Consigli</string>
 
-    <string name="yes">Sì</string>
-    <string name="no">No</string>
+
+    <string name="yes">SI</string>
+    <string name="no">NO</string>
     <string name="ok">Ok</string>
     <string name="cancel">Annulla</string>
+    <string name="block_notify">Chiudi Notifica</string>
 
     <string name="add_pressure_data">Pressione sanguigna</string>
     <string name="insert_pressure">Inserisci la tua pressione</string>
@@ -81,7 +92,9 @@
     <string name="add_smoke_data">Sigarette fumate</string>
     <string name="smoke_today">Hai fumato oggi?</string>
     <string name="add_medicine_data">Medicinali</string>
+    <string name="remember_medicine">Ricordati di prendere i tuoi medicinali!</string>
     <string name="medicine_today">Hai preso i tuoi medicinali oggi?</string>
+    <string name="confirm_medicine">Conferma Assunzione Farmaci</string>
     <string name="add_physical_activity_data">Attività Fisica</string>
     <string name="pa_type1">Camminata</string>
     <string name="pa_type2">Corsa</string>
@@ -102,7 +115,7 @@
     <string name="event_physical_examination">Visita Medica</string>
     <string name="event_hospitalization">Ricovero Ospedaliero</string>
     <string name="event_bleeding">Sanguinamento senza intervento medico</string>
-    <string name="event_add_examination_data">Aggiungi Esame</string>
+    <string name="event_add_examination_data">Aggiungi Risultati Esame</string>
 
     <string name="error_future_date">Non puoi inserire dati per una data successiva a oggi</string>
     <string name="alert_old_date">Attenzione!\nStai modificando un\'informazione passata!</string>
@@ -111,6 +124,15 @@
     <string name="error_pa_dialog">Inserici almeno un dato.\nSe non vuoi inserire nessun dato, clicca su Annulla.</string>
     <string name="error_out_of_scale">Valore Errato</string>
 
+    <string name="mon">Lun</string>
+    <string name="tue">Mar</string>
+    <string name="wed">Mer</string>
+    <string name="thu">Gio</string>
+    <string name="fri">Ven</string>
+    <string name="sat">Sab</string>
+    <string name="sun">Dom</string>
+    <string name="time">Orario</string>
+    <string name="drug">Medicinale</string>
     <string name="hour8">8.00</string>
     <string name="hour9">9.00</string>
     <string name="hour10">10.00</string>
@@ -124,6 +146,27 @@
     <string name="hour18">18.00</string>
     <string name="hour19">19.00</string>
     <string name="hour20">20.00</string>
+    <string name="hour21">21.00</string>
+    <string name="hour22">22.00</string>
     <string name="after_meal">dopo i pasti</string>
+    <string name="before_meal">a stomaco vuoto</string>
+
+    <string name="title_change_therapy">Si è trattato di una decisione personale\no consigliata dal medico?</string>
+    <string name="description_change_therapy">Descrivi il cambiamento nella terapia:</string>
+    <string name="personal">Personale</string>
+    <string name="physician">Medico</string>
+    <string name="description">Descrizione</string>
+    <string name="error_therapy_radio">Seleziona "Personale" o "Medico"</string>
+    <string name="error_therapy_description">Inserisci una descrizione</string>
+    <string name="title_physical_examination">Inserisci la ragione della visita</string>
+    <string name="title_hospitalization">Inserisci la ragione del ricovero</string>
+    <string name="title_bleeding">Quanto è durato approssimativamente?</string>
+    <string name="title_add_examination_data">Aggiungi una foto dei risultati dell\'esame</string>
+    <string name="photo_name">Nome Foto</string>
+    <string name="content_description_add_photo_button">Aggiungi Foto</string>
+    <string name="pick_image_intent_text">Selezionare un\'applicazione per completare l\'azione</string>
+    <string name="error_image_dialogue">Inserisci un\'immagine</string>
+    <string name="error_image_name_dialogue">Dai un nome all\'immagine</string>
+
 
 </resources>

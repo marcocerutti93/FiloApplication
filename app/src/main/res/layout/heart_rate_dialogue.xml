@@ -30,7 +30,7 @@
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginStart="@dimen/margin"
         android:textSize="@dimen/text_more"
-        android:inputType="numberDecimal" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/edit_heart_rate_unit"

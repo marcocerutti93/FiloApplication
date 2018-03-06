@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,137 +8,150 @@
     android:orientation="vertical"
     android:background="@color/grey_100">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.0">
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/double_margin">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/grey_100"
+            android:padding="@dimen/margin"
+            android:clipToPadding="false" >
 
             <ImageButton
                 android:id="@+id/add_data_button"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.0"
+                android:layout_height="match_parent"
                 android:src="@mipmap/heart"
-                android:background="@color/grey_100"
-                />
+                android:background="@color/white"
+                android:elevation="@dimen/elevation_main"/>
 
             <TextView
                 android:id="@+id/add_data_button_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/add_data_button"
                 android:layout_marginBottom="@dimen/margin"
                 android:text="@string/add_data_button_text"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textSize="@dimen/text"
-                android:background="@color/grey_100"/>
+                android:background="@color/white"
+                android:elevation="@dimen/elevation_main"/>
+
+        </RelativeLayout>
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0"
-            >
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/grey_100"
+            android:padding="@dimen/margin"
+            android:clipToPadding="false">
 
 
             <ImageButton
                 android:id="@+id/medicine_button"
-                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_weight="1.0"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:scaleType="fitCenter"
                 android:src="@mipmap/ic_medicine"
-                android:background="@color/grey_100"/>
+                android:elevation="@dimen/elevation_main"/>
 
             <TextView
                 android:id="@+id/medicine_button_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin"
+                android:layout_alignBottom="@id/medicine_button"
                 android:text="@string/medicine_button_text"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textSize="@dimen/text"
-                android:background="@color/grey_100"/>
+                android:background="@color/white"
+                android:elevation="@dimen/elevation_main"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.0">
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/double_margin"
+        >
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0">
-
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/grey_100"
+            android:padding="@dimen/margin"
+            android:clipToPadding="false">
 
             <ImageButton
                 android:id="@+id/patient_information_button"
-                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.0"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:scaleType="fitCenter"
                 android:src="@mipmap/ic_clinic_information"
-                android:background="@color/grey_100"/>
+                android:elevation="@dimen/elevation_main"/>
 
             <TextView
                 android:id="@+id/patient_information_button_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/patient_information_button"
                 android:layout_marginBottom="@dimen/margin"
+                android:background="@color/white"
                 android:text="@string/patient_information_button_text"
                 android:textAlignment="center"
-                android:textStyle="bold"
                 android:textSize="@dimen/text"
-                android:background="@color/grey_100"/>
+                android:textStyle="bold"
+                android:elevation="@dimen/elevation_main"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0">
-
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/grey_100"
+            android:padding="@dimen/margin"
+            android:clipToPadding="false">
 
             <ImageButton
                 android:id="@+id/logout_button"
-                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.0"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:scaleType="fitCenter"
                 android:src="@mipmap/logout"
-                android:background="@color/grey_100" />
+                android:elevation="@dimen/elevation_main"/>
 
             <TextView
                 android:id="@+id/logout_button_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/logout_button"
                 android:layout_marginBottom="@dimen/margin"
+                android:background="@color/white"
                 android:text="@string/logout_button_text"
                 android:textAlignment="center"
-                android:textStyle="bold"
                 android:textSize="@dimen/text"
-                android:background="@color/grey_100"/>
+                android:textStyle="bold"
+                android:elevation="@dimen/elevation_main" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-    </LinearLayout>
-</LinearLayout>
+    </TableRow>
+</TableLayout>

@@ -1,5 +1,8 @@
 package com.tesi.marco.filo;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,10 +13,14 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Calendar;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private ImageButton addData, medicine, info, signOutButton;
+    private int day, tab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +39,34 @@ public class MainActivity extends AppCompatActivity {
         medicine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TherapyActivity.class));
+                Calendar cal = Calendar.getInstance();
+                day = cal.get(Calendar.DAY_OF_WEEK);
+                switch (day){
+                    case Calendar.SUNDAY:
+                        tab = 6;
+                        break;
+                    case Calendar.MONDAY:
+                        tab = 0;
+                        break;
+                    case Calendar.TUESDAY:
+                        tab = 1;
+                        break;
+                    case Calendar.WEDNESDAY:
+                        tab = 2;
+                        break;
+                    case Calendar.THURSDAY:
+                        tab = 3;
+                        break;
+                    case Calendar.FRIDAY:
+                        tab = 4;
+                        break;
+                    case Calendar.SATURDAY:
+                        tab = 5;
+                        break;
+                }
+                Intent intent = new Intent(MainActivity.this, TherapyActivity.class);
+                intent.putExtra("tab",tab);
+                startActivity(intent);
             }
         });
 
@@ -56,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void signOut() {
-        //Toast.makeText(MainActivity.this,"pressed",Toast.LENGTH_SHORT).show();
         mAuth = FirebaseAuth.getInstance();
         mAuth.signOut();
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
