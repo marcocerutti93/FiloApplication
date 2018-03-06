@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tesi.marco.filo">
 
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission
+        android:name="android.permission.VIBRATE"
+        android:maxSdkVersion="18" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/heart"
@@ -26,7 +34,11 @@
         <activity android:name=".AddEventActivity" />
         <activity
             android:name=".TherapyActivity"
-            android:label="@string/therapy_activity_title" />
+            android:label="@string/therapy_activity_title"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>

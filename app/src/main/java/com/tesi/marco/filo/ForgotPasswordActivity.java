@@ -49,17 +49,19 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     focusView.requestFocus();
                 } else {
                     mProgressView.setVisibility(View.VISIBLE);
-                    InputMethodManager imm = (InputMethodManager) getSystemService(ForgotPasswordActivity.INPUT_METHOD_SERVICE);
-                    imm.toggleSoftInput (InputMethodManager.SHOW_FORCED, 0);
+                    InputMethodManager imm = (InputMethodManager)getSystemService(ForgotPasswordActivity.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(mEmailField.getWindowToken(),0);
                     mAuth.sendPasswordResetEmail(email)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
                                         Toast.makeText(ForgotPasswordActivity.this, R.string.email_sent, Toast.LENGTH_SHORT).show();
-                                        mProgressView.setVisibility(View.GONE);
                                         finish();
+                                    } else {
+                                        Toast.makeText(ForgotPasswordActivity.this, R.string.error_password_reset, Toast.LENGTH_SHORT).show();
                                     }
+                                    mProgressView.setVisibility(View.GONE);
                                 }
                             });
                 }

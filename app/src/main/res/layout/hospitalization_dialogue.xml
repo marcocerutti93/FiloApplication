@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_hospitalization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/title_hospitalization"
+        android:textAlignment="center"
+        android:textSize="@dimen/text"
+        android:textColor="@color/colorAccentDark" />
+
+    <EditText
+        android:id="@+id/description_hospitalization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_hospitalization"
+        android:hint="@string/description"
+        android:textSize="@dimen/text"
+        android:inputType="textMultiLine"
+        android:gravity="top|start"
+        android:lines="4" />
+
+</RelativeLayout>
