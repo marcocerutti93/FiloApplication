@@ -2,6 +2,7 @@
     <string name="app_name">Filo</string>
     <string name="add_data_title_today">Filo - Oggi</string>
     <string name="add_event_title">Filo - Aggiungi Evento</string>
+
     <string name="registration_activity_title">Registra paziente</string>
     <string name="forgot_password_activity_title">Recupero Password</string>
     <string name="action_recover_password">Recupera Password</string>

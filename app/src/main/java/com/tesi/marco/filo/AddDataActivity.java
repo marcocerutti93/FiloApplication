@@ -221,6 +221,7 @@ public class AddDataActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(AddDataActivity.this, getString(R.string.error_out_of_scale), Toast.LENGTH_SHORT).show();
                     }
+
                 } else {
                     Toast.makeText(AddDataActivity.this, getString(R.string.error_dialog_ok), Toast.LENGTH_SHORT).show();
                 }
