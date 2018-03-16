@@ -40,7 +40,7 @@
             android:layout_margin="@dimen/margin"
             android:hint="@string/duration"
             android:textSize="@dimen/text"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             />
 
     </RelativeLayout>

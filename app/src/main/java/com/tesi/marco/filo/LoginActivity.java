@@ -1,5 +1,8 @@
 package com.tesi.marco.filo;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,7 +19,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
+import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -79,6 +87,9 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+
+
     }
 
     private void signIn() {
@@ -97,9 +108,19 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, "signInWithEmail:failure", task.getException());
+                            try {
+                                throw task.getException();
+                            } catch(FirebaseAuthInvalidUserException e) {
+                                Toast.makeText(LoginActivity.this, getString(R.string.invalid_user_exception),
+                                        Toast.LENGTH_LONG).show();
+                            } catch(FirebaseAuthInvalidCredentialsException e) {
+                                Toast.makeText(LoginActivity.this, getString(R.string.invalid_credential_exception),
+                                        Toast.LENGTH_LONG).show();
+                            } catch(Exception e) {
+                                Toast.makeText(LoginActivity.this, e.getLocalizedMessage(),
+                                        Toast.LENGTH_LONG).show();
+                            }
                             mProgressView.setVisibility(View.GONE);
                         }
                     }

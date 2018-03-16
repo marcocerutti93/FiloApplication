@@ -486,14 +486,14 @@ public class AddDataActivity extends AppCompatActivity {
 
     private boolean checkPressureData(String max, String min){
         boolean check = true;
-        if (min.isEmpty()){
-            ePressureMin.setError(getString(R.string.error_field_required));
-            ePressureMin.requestFocus();
-            check = false;
-        }
         if (max.isEmpty()){
             ePressureMax.setError(getString(R.string.error_field_required));
             ePressureMax.requestFocus();
+            check = false;
+        }
+        if (min.isEmpty()){
+            ePressureMin.setError(getString(R.string.error_field_required));
+            ePressureMin.requestFocus();
             check = false;
         }
         return check;
@@ -501,14 +501,14 @@ public class AddDataActivity extends AppCompatActivity {
 
     private boolean checkPressureValue(String max, String min){
         boolean check = true;
-        if (Double.parseDouble(min)<=20.0 || Double.parseDouble(min)>=150.0){
-            ePressureMin.setError(getString(R.string.error_out_of_scale));
-            ePressureMin.requestFocus();
-            check = false;
-        }
         if (Double.parseDouble(max)<=60.0 || Double.parseDouble(max)>=270.0){
             ePressureMax.setError(getString(R.string.error_out_of_scale));
             ePressureMax.requestFocus();
+            check = false;
+        }
+        if (Double.parseDouble(min)<=20.0 || Double.parseDouble(min)>=150.0){
+            ePressureMin.setError(getString(R.string.error_out_of_scale));
+            ePressureMin.requestFocus();
             check = false;
         }
         return check;

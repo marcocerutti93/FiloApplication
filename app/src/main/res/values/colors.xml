@@ -7,6 +7,7 @@
     <color name="colorAccentDark">#ff6940</color>
     <!--<color name="colorAccentDark">#3e7ed9</color>-->
     <color name="colorAlert">#ff0000</color>
+    <color name="backgroundNotification">#FA3200</color>
 
     <color name="grey_100">#F5F5F5</color>
     <color name="black">#000000</color>
